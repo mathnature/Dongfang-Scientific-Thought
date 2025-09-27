@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>东方学帝科学思想 - 突破认知边界</title>
+    <title>东方学帝科学思想 / Dongfang Scientific Thought - 突破认知边界</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         body {
             background: linear-gradient(135deg, #0c0c2e 0%, #1a1a4a 50%, #2d2d6e 100%);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Microsoft YaHei', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -48,45 +48,108 @@
         }
         
         .logo {
+            margin-bottom: 40px;
+        }
+        
+        .bilingual-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
             margin-bottom: 30px;
         }
         
-        .logo h1 {
+        .chinese-title {
             font-size: 4rem;
-            background: linear-gradient(45deg, #f1c40f, #e74c3c, #8e44ad);
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00, #FF4500);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+            text-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.6),
+                0 0 60px rgba(255, 165, 0, 0.4);
             animation: glow 3s ease-in-out infinite alternate;
         }
         
+        .english-title {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #FFA500, #FF8C00, #FF4500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
         @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(241, 196, 15, 0.5); }
-            to { text-shadow: 0 0 30px rgba(231, 76, 60, 0.8), 0 0 40px rgba(142, 68, 173, 0.6); }
+            from { 
+                text-shadow: 
+                    0 0 20px rgba(255, 215, 0, 0.8),
+                    0 0 40px rgba(255, 165, 0, 0.6);
+            }
+            to { 
+                text-shadow: 
+                    0 0 30px rgba(255, 215, 0, 1),
+                    0 0 60px rgba(255, 140, 0, 0.8);
+            }
         }
         
         .subtitle {
-            font-size: 1.5rem;
-            color: #bdc3c7;
+            font-size: 1.3rem;
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FF8C00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 50px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            line-height: 1.6;
         }
         
         .mission-statement {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 30px;
-            margin: 40px 0;
+            padding: 40px;
+            margin: 50px 0;
             text-align: left;
         }
         
-        .mission-statement h2 {
-            color: #f1c40f;
+        .bilingual-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        @media (max-width: 768px) {
+            .bilingual-mission {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        .mission-column h2 {
+            background: linear-gradient(90deg, #FFD700, #FF4500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 20px;
             text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .mission-column p {
+            line-height: 1.8;
+            font-size: 1.0rem;
+            text-align: justify;
+        }
+        
+        .mission-column.english {
+            font-style: italic;
+            border-left: 2px solid rgba(255, 215, 0, 0.3);
+            padding-left: 30px;
         }
         
         .language-buttons {
@@ -142,165 +205,156 @@
             font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: 10px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .btn-desc {
             font-size: 1rem;
-            opacity: 0.8;
+            opacity: 0.9;
+            line-height: 1.5;
         }
         
-.scientific-principles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin: 50px 0;
-}
-
-.principle {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 25px;
-    border-radius: 12px;
-    border-left: 4px solid #FFD700;
-    transition: transform 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.principle::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
-    transition: left 0.6s ease;
-}
-
-.principle:hover::before {
-    left: 100%;
-}
-
-.principle:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-}
-
-.principle h3 {
-    background: linear-gradient(90deg, #FFD700, #FF8C00);
+        .scientific-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .principle {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .principle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .principle:hover::before {
+            left: 100%;
+        }
+        
+        .principle:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        /* 修改重点：分层式标题样式 */
+        .principle h3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .chinese-main {
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, #FFD700, #FF8C00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .english-main {
+    font-size: 1rem;
+    background: linear-gradient(90deg, #FFA500, #FF6347);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.principle p {
-    color: #e0e0e0;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    font-weight: bold;  /* 改为bold */
+    font-style: italic;
+    letter-spacing: 0.5px;
+    text-align: center;
 }
         
-        .footer {
-            margin-top: 80px;
-            color: #95a5a6;
+        .bilingual-principle {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .principle p {
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .principle .english-desc {
+            font-style: italic;
+            opacity: 0.8;
             font-size: 0.9rem;
         }
         
+        .footer {
+            margin-top: 80px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
         @media (max-width: 768px) {
-            .logo h1 { font-size: 2.5rem; }
+            .chinese-title { font-size: 2.5rem; }
+            .english-title { font-size: 2.5rem; }
             .btn { padding: 25px 20px; }
+            .bilingual-mission { grid-template-columns: 1fr; }
+            .mission-column.english { 
+                border-left: none; 
+                border-top: 2px solid rgba(255, 215, 0, 0.3);
+                padding-left: 0;
+                padding-top: 20px;
+            }
+            .chinese-main { font-size: 1.2rem; }
+            .english-main { font-size: 1.2rem; }
         }
 
-/* 更新标题渐变色彩 */
-.logo h1 {
-    font-size: 4rem;
-    background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00, #FF4500);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 
-        0 0 30px rgba(255, 215, 0, 0.6),
-        0 0 60px rgba(255, 165, 0, 0.4),
-        0 0 90px rgba(255, 140, 0, 0.2);
-    animation: glow 3s ease-in-out infinite alternate;
+/* 金银双色对称方案 */
+.chinese-section {
+    border-left: 4px solid #FFD700;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    position: relative;
 }
 
-@keyframes glow {
-    from { 
-        text-shadow: 
-            0 0 20px rgba(255, 215, 0, 0.8),
-            0 0 40px rgba(255, 165, 0, 0.6);
-    }
-    to { 
-        text-shadow: 
-            0 0 30px rgba(255, 215, 0, 1),
-            0 0 60px rgba(255, 140, 0, 0.8),
-            0 0 90px rgba(255, 69, 0, 0.6);
-    }
+.chinese-section::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #FFD700, transparent);
 }
 
-/* 更新副标题颜色 */
-.subtitle {
-    font-size: 1.5rem;
-    background: linear-gradient(90deg, #FFD700, #FFA500, #FF8C00);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 50px;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+.english-section {
+    border-left: 4px solid #C0C0C0;
+    padding-left: 15px;
+    padding-top: 25px;
 }
 
-/* 更新按钮标题颜色 */
-.btn-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    background: linear-gradient(45deg, #FFD700, #FFA500);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-/* 更新原理卡片标题颜色 */
 .principle h3 {
-    background: linear-gradient(90deg, #FFD700, #FF8C00);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
-
-/* 更新使命宣言标题 */
-.mission-statement h2 {
-    background: linear-gradient(90deg, #FFD700, #FF4500);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 20px;
-    text-align: center;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-}
-
-/* 更新页脚文字颜色 */
-.footer {
-    margin-top: 80px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 0.9rem;
-}
-
-/* 增强按钮hover效果 */
-.btn:hover .btn-title {
-    background: linear-gradient(45deg, #FF8C00, #FF4500);
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
-}
-
     </style>
 </head>
 <body>
@@ -308,62 +362,141 @@
     
     <div class="container">
         <div class="logo">
-            <h1>🌌 东方学帝科学思想</h1>
-            <div class="subtitle">XDDongfang Scientific Thought · 突破认知的边界</div>
+            <div class="bilingual-title">
+                <div class="chinese-title">🌌 东方学帝科学思想</div>
+                <div class="english-title">Dongfang Scientific Thought</div>
+            </div>
+            <div class="subtitle">
+                突破认知边界 · Breaking Cognitive Boundaries
+            </div>
         </div>
-        
-<div class="mission-statement">
-    <h2>✨ 科学革命的前沿阵地</h2>
-    <p>这里，传统物理学的边界被重新定义，量子力学的深层逻辑得以揭示。<strong>东方学帝纠缠球谐函数</strong>从根本上改变了理论物理的数学基础，而<strong>东方学帝初等数论体系</strong>则为数论研究开辟了全新路径。</p>
-    <p>基于归一原理、逻辑熵原理等原创理论体系，我们呈现给世界的是一个更加自洽、更加深刻的自然规律描述框架——这不仅是对现有理论的超越，更是对人类认知边界的根本性突破。</p>
-</div>
-        
+
         <div class="language-buttons">
             <a href="en.html" class="btn">
                 <div class="btn-icon">🔬</div>
-                <div class="btn-title">English Version</div>
-                <div class="btn-desc">Explore the complete scientific framework in English</div>
+                <div class="btn-title">Complete English Version</div>
+                <div class="btn-desc">Explore the full scientific framework with detailed theories and mathematical proofs</div>
             </a>
             
             <a href="cn.html" class="btn">
                 <div class="btn-icon">📚</div>
-                <div class="btn-title">中文版本</div>
-                <div class="btn-desc">深入探索完整的中文科学理论体系</div>
+                <div class="btn-title">完整中文版本</div>
+                <div class="btn-desc">深入探索完整的科学理论体系，包含详细理论和数学证明</div>
             </a>
         </div>
         
-<div class="scientific-principles">
-    <div class="principle">
-        <h3>🌌 东方学帝归一原理</h3>
-        <p>不同度量间的确定性变换关系 · 物理规律的统一数学表述</p>
-    </div>
-    <div class="principle">
-        <h3>⚡ 东方学帝逻辑熵原理</h3>
-        <p>推理系统中信息总量的最小化 · 认知边界的量化突破</p>
-    </div>
-    <div class="principle">
-        <h3>🔗 东方学帝纠缠球谐函数</h3>
-        <p>理论物理学的范式革命 · 量子纠缠的数学本质揭示</p>
-    </div>
-    <div class="principle">
-        <h3>🎯 东方学帝初等数论体系</h3>
-        <p>高次丢番图方程的有效求解 · 费马大定理的终极证明</p>
-    </div>
-    <div class="principle">
-        <h3>🌀 共量子理论</h3>
-        <p>宏观微观统一的量子描述 · 自然规律的深层统一</p>
-    </div>
-    <div class="principle">
-        <h3>⚖️ 东方学帝科学纲领</h3>
-        <p>逻辑自律的学术宪章 · 科学探索的元规则体系</p>
-    </div>
-</div>
+        <div class="mission-statement">
+            <div class="bilingual-mission">
+                <div class="mission-column chinese">
+                    <h2>✨ 科学革命的前沿阵地</h2>
+                    <p>这里，传统物理学的边界被重新定义，量子力学的深层逻辑得以揭示。东方学帝纠缠球谐函数从根本上改变了理论物理的数学基础，而东方学帝初等数论体系则为数论研究开辟了全新路径。</p>
+                    <p>基于归一原理、逻辑熵原理等原创理论体系，呈现给世界的是一个更加自洽、更加深刻的自然规律描述框架——这不仅是对现有理论的超越，更是对人类认知边界的根本性突破。</p>
+                </div>
+                <div class="mission-column english">
+                    <h2>✨ Frontier of Scientific Revolution</h2>
+                    <p>Here, the boundaries of traditional physics are redefined, and the deep logic of quantum mechanics is revealed. The Dongfang Entangled Spherical Harmonic Function fundamentally transforms the mathematical foundation of theoretical physics, while the Dongfang Elementary Number Theory System opens new pathways in number theory research.</p>
+                    <p>Based on original theoretical systems such as the Unitary Principle and Logical Entropy Principle, we present to the world a more self-consistent and profound framework for describing natural laws—this represents not only a transcendence of existing theories but also a fundamental breakthrough in human cognitive boundaries.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scientific-principles">
+            <div class="principle">
+                <h3>
+                    <span class="chinese-main">🌌 东方学帝归一原理</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p>不同度量间的确定性变换关系 · 物理规律的统一数学表述</p>
+                </div>
+                <h3>
+                    <span class="english-main">🌌 Dongfang Unitary Principle</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p class="english-desc">Deterministic transformation between metrics · Unified mathematical representation of physical laws</p>
+                </div>
+            </div>
 
-</div>
+            <div class="principle">
+                <h3>
+                    <span class="chinese-main">⚡ 东方学帝逻辑熵原理</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p>推理系统中信息总量的最小化 · 认知边界的量化突破</p>
+                </div>
+                <h3>
+                    <span class="english-main">⚡ Dongfang Logical Entropy Principle</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p class="english-desc">Minimization of total information in reasoning systems · Quantitative breakthrough in cognitive boundaries</p>
+                </div>
+            </div>
+
+            <div class="principle">
+                <h3>
+                    <span class="chinese-main">🔗 东方学帝纠缠球谐函数</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p>理论物理学的范式革命 · 量子纠缠的数学本质揭示</p>
+                </div>
+                <h3>
+                    <span class="english-main">🔗 Dongfang Entangled Spherical Harmonic Function</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p class="english-desc">Paradigm revolution in theoretical physics · Mathematical essence of quantum entanglement revealed</p>
+                </div>
+            </div>
+ 
+           <div class="principle">
+                <h3>
+                    <span class="chinese-main">🎯 东方学帝初等数论体系</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p>高次丢番图方程的有效求解 · 费马大定理的终极证明</p>
+                </div>
+                <h3>
+                    <span class="english-main">🎯 Dongfang Elementary Number Theory System</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p class="english-desc">Effective solution of higher-degree Diophantine equations · Ultimate proof of Fermat's Last Theorem</p>
+                </div>
+            </div>
+
+            <div class="principle">
+                <h3>
+                    <span class="chinese-main">🌀 共量子理论</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p>宏观微观统一的量子描述 · 自然规律的深层统一</p>
+                </div>
+                <h3>
+                    <span class="english-main">🌀 Com Quantum Theory</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p class="english-desc">Unified quantum description of macro-micro worlds · Deep unification of natural laws</p>
+                </div>
+           </div>
+
+
+            <div class="principle">
+                <h3>
+                    <span class="chinese-main">⚖️ 东方学帝科学纲领</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p>逻辑自律的学术宪章 · 科学探索的元规则体系</p>
+                </div>
+                <h3>
+                    <span class="english-main">⚖️ Dongfang Scientific Program</span>
+                </h3>
+                <div class="bilingual-principle">
+                    <p class="english-desc">Logical self-discipline academic charter · Meta-rule system for scientific exploration</p>
+                </div>
+            </div>
+        </div>
         
         <div class="footer">
             <p>Mathematics & Nature Editorial Board · Since 2021</p>
             <p>科学思想的自由探索之地 · 认知边界的前沿突破</p>
+            <p>A Free Exploration Ground for Scientific Thought · Frontier Breakthrough in Cognitive Boundaries</p>
         </div>
     </div>
     
