@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dongfang Scientific Thought-Editorial Board of Mathematics and Nature <</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --gold-color: #f1c40f;
+            --light-color: #ecf0f1;
+            --dark-color: #1a1a2e;
+            --success-color: #27ae60;
+            --poetry-accent: #e67e22; /* 科普作品特色颜色 */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #16213e 100%);
+            color: var(--light-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: rgba(26, 26, 46, 0.9);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+            background: linear-gradient(45deg, var(--gold-color), #e74c3c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--gold-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--gold-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-color);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* 英雄区域样式 */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a2e"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23244b75" stroke-width="1"/></svg>');
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 40%, var(--dark-color) 90%);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--gold-color);
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+        }
+        
+        .intro-text {
+            font-style: normal;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-left: 4px solid var(--accent-color);
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+.justified-text {
+  text-align: justify;
+}
+
+/* 1. 引言部分段落 */
+.intro-text p {
+    text-indent: 2em;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 2. 第四部分内容段落 - 增加特异性 */  
+.container > p {  /* 只针对直接子段落，不影响原理框 */
+    text-indent: 2em;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 3. 增强原理框的选择器特异性 */
+.container .principle-box p,
+.principle-box p {
+    text-indent: 0 !important;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 4. 第五部分使命段落 */
+.mission-item p {
+    text-indent: 0 !important;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 5. 第四部分宣言段落 */
+.mission-declaration p {
+    text-indent: 2em !important;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 排除不需要缩进的区域 */
+.card-header p, 
+.year-title p,
+.section-title p,
+footer p,
+nav p {
+    text-indent: 0 !important;
+}
+        
+        /* 内容部分样式 */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+            padding: 0 20px;
+            background: var(--dark-color);
+            position: relative;
+            z-index: 1;
+            color: var(--gold-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            z-index: 0;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 28% 28% 43%; /* 原理框各28%，纲领框44% */
+    gap: 25px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr; /* 小屏幕上单列显示 */
+    }
+}
+
+        .card {
+            background: linear-gradient(145deg, #1e2a3f, #192231);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, var(--accent-color), #6c3483);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card-body li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .card-body li::before {
+            content: '•';
+            color: var(--gold-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+/* 专门针对科学著作区域的链接样式 */
+.scroll-container .year-item a {
+    color: #8ecfff;  /* 科学著作链接使用浅蓝色 */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.scroll-container .year-item a:hover {
+    color: var(--gold-color);  /* 悬停时变为金色 */
+    text-decoration: underline;
+}        
+        .card-body a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .card-body a:hover {
+            color: var(--gold-color);
+            text-decoration: underline;
+        }
+
+.principle-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px -10px; /* 合并左右负margin */
+   /* border-left: 4px solid var(--success-color); */  /* 注销纲领左括号 */
+    text-align: left;
+    box-sizing: border-box;
+    width: calc(100% + 20px); /* 合并宽度调整 */
+}
+
+.principle-box h4 {
+    color: var(--success-color);
+    display: inline;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.principle-box p {
+    display: inline;
+    text-indent: 0;
+    margin: 0;
+    line-height: -1.6;
+}
+        
+        /* 页脚样式 */
+        footer {
+            background: rgba(10, 10, 20, 0.95);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-content p {
+            margin: 10px 0;
+            color: #95a5a6;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* 卷轴样式 */
+        .scroll-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            padding: 20px 0;
+        }
+        
+        .year-scroll {
+            display: flex;
+            padding: 10px;
+        }
+        
+        .year-item {
+            min-width: 280px;
+            margin: 0 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .year-title {
+            color: var(--gold-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* 科普作品特色样式 */
+        #poetry .year-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(230, 126, 34, 0.3);
+        }
+        
+        #poetry .year-title {
+            color: var(--poetry-accent);
+            border-bottom: 1px solid var(--poetry-accent);
+        }
+        
+        #poetry .scroll-container .year-item a {
+            color: #ffb366;  /* 科普作品链接使用橙色 */
+        }
+
+/* 第五部分独特样式 */
+.mission-temple {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    border-radius: 15px;
+    padding: 0px;
+    margin: 0px 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.mission-temple::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-color), var(--accent-color), var(--gold-color));
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.mission-column {
+    text-align: left;
+}
+
+.mission-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    height: 100%;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mission-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mission-item i {
+    font-size: 3rem;
+    color: var(--gold-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.mission-item h3 {
+    color: var(--gold-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.mission-item p {
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.mission-declaration {
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 4px solid var(--gold-color);
+    padding: 30px;
+    border-radius: 0 10px 10px 0;
+    margin-top: 20px;
+}
+
+.declaration-text h4 {
+    color: var(--gold-color);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.declaration-text p {
+    font-size: 1.0rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .mission-temple {
+        padding: 20px;
+    }
+    
+    .mission-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-item {
+        padding: 20px;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="logo-icon fas fa-atom"></i>
+                <h1>Dongfang Scientific Thought </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro">Profile</a></li>
+                    <li><a href="#principles">Principles & Program</a></li>
+                    <li><a href="#articles">Science</a></li>
+                    <li><a href="#poetry">Popularization</a></li>
+                    <li><a href="#course">Course</a></li>
+                     <li><a href="#mission">Mission</a></li>
+               </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+        <section id="intro">
+            <h2>Dongfang Scientific Thought</h2>
+            <p>Editorial Board of Mathematics and Nature</p>
+            
+            <div class="intro-text">
+                <p class="justified-text">A group of specters, dressed in eerie gray veils and embroidered with the symbol of "scientific consensus", block the light of the sun and moon, a bit creepy, a bit evil, wandering in the sky above the earth, from west to east, from east to west. A disabled shrike hunts down newly born young creatures around, skillfully impaling its prey on thorns to pierce their innards, all while emitting shrill, flattering laughter, proclaiming to all beings beneath the clouds its privilege and prestige to roam the skies unchecked.</p>
+                <p class="justified-text">Today, the shadow of specters tightly envelops the spirit of science. The grey veil obscures the true appearance of their true forms, and a gloomy voice pours down from the edge of the veil, rising one after another between heaven and earth: "I am the consensus, saving all living beings, indifferent to fame and gain, and all the seeds and fruits of the world need to be sacrificed to heaven; Those who violate orders and go against the tide to sow blessings are heretics, doomed to fall into eternal darkness."  TThe specters patrol the skies and traverse the earth, capturing new scientific ideas, wielding the invisible sword of stigmatization, and stab the hearts of the most hardworking and weak cultivators in an attempt to make them no longer sound.  High halls and spacious buildings, singing and dancing, day and night revelry, all for the success of repeated plundering and the joy of stifling new life. They are not shrikes, yet they are more vicious than shrikes.</p>
+	<p class="justified-text">Wake up, great scientific thought, give up the unrealistic fantasy that forbearance will eventually influence specters, and return to nature. Let the strong wind sow seeds, let the rain and dew nourish life, and take root and sprout in the wilderness, on river banks, on lakesides, in the mountains, in deep streams, and on cliffs. The brilliant sunshine always shines on the earth, and the power of life is unstoppable.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="principles">
+            <div class="section-title">
+                <h2>Dongfang Scientific Principles and Scientific Programs</h2>
+            </div>
+           
+            <div class="cards-container">
+                <div class="card animated">
+                    <div class="card-header">
+                        <h3>Dongfang Unitary Principle</h3>
+                    </div>
+                    <div class="card-body">
+ 	         <div class="principle-box">
+                         	<div>   <h4>Abbreviated Version (Physics Academic Context)</h4> </div>
+		<div class="justified-text"> There exist definite transformation relationships between different metrics. The natural laws themselves do not change due to the choice of different metrics. When various mathematical representations of the same natural law in different metrics are transformed into one specific metric, the result must be identical to the intrinsic form within that metric, 1=1, and the transformation is unitary. </div>
+                        	<div>   <h4>Extended Version (General Philosophical Context)</h4> </div>
+		<div class="justified-text">  Different logical deduction systems for the same proposition possess definite mapping relationships. The objective conclusion of the proposition does not change due to different forms of deduction. When various representations of the proposition's result in different logical systems are transformed into one specific logical system, the result must be identical to the intrinsic representation within that logical system, 1=1, and the transformation is unitary. </div>
+                         </div>
+                    </div>
+                </div>
+                
+                <div class="card animated">
+                    <div class="card-header">
+                        <h3>Dongfang Logical Entropy Principle</h3>
+                    </div>
+                    <div class="card-body">
+  	         <div class="principle-box">
+                        	<div>   <h4>Extended Version (General Philosophical Context)</h4> </div>
+		<div class="justified-text"> In a logical system, the total information content carried by all logical elements—including definitions and concepts, preconditions, all necessary and sufficient conditions, as well as all probabilistic and deterministic causal relationships—is termed logical entropy. When the preconditions hold true, the logical entropy of the deduction with the highest confidence is minimized and remains constant.</div>
+                         	<div>   <h4>Abbreviated Version (Mathematical-Physical Logic Context)</h4> </div>
+		<div class="justified-text"> In logical deduction systems of mathematical and physical propositions, the total information content constituted by all preconditions, inference rules, and conclusion relationships is termed logical entropy. When the preconditions hold true and the reasoning is valid, the logical entropy of the optimal proof path is minimized and remains constant.</div>
+                       </div>
+                    </div>
+                </div>
+                
+                <div class="card animated">
+
+                    <div class="card-header">
+                        <h3>Dongfang Scientific Programs</h3>
+                    </div>
+                    <div class="card-body">
+	         <div class="principle-box">
+                         <div class="justified-text">A theory describing mathematical laws and natural phenomena must be rigorously logically sound. Correct theories are the guarantee of the continuous progress of human civilization, while erroneous theories require either revision or outright rejection. The establishment and development of scientific theories must adhere to several fundamental principles.</div>
+                        	<div class="justified-text">   <h4>Article 1</h4>Logic possesses a profound spiritual power; logical self-consistency and self-discipline form the fundamental norms for establishing and developing scientific theories.</div>
+                         	<div class="justified-text">   <h4>Article 2</h4> Encompassing experimental principles, data observation or production, and interpretation of phenomena, the logic of a natural science theory must, both locally and globally, comply with the unitary principle and the logical entropy principle. Logical deductions that violate the unitary principle have uncertain conclusions, originating from the malformed definitions, unsound assumptions, or ambiguous models of the logical system, and therefore are invalid. Logical deduction of logical entropy change may lead to logical loopholes requiring repair; the logical properties of the concept drift logical entropy change have fundamentally changed, determining the distorted causal relationships, and the logic is incorrect.</div>
+                         	<div class="justified-text">   <h4>Article 3</h4> Systematically modified observational data, large-scale fabrication of experimental data, or erroneous interpretation of experimental phenomena does not constitute any valid evidence of logical deduction and conclusions that violate basic common sense. Overthrowing false premises and distorted experimental reports, correcting or subverting erroneous theories, is an irresistible internal requirement for the development of scientific theories and has profound scientific significance.</div>
+                         	<div class="justified-text">   <h4>Article 4</h4> The rationality of logic is not defined by the concept confusion technology that a few peers' approval votes are packaged into scientific consensus by high-impact media, but must be validated through extensive historical practice. The priority of logical self-consistency is higher than the drumbeat proposition that distorts scientific concepts.</div>
+                         	<div class="justified-text">   <h4>Article 5</h4> Article 5.	It is legal and effective for the disadvantaged groups of researchers to spread their unique scientific discoveries to the world through independent websites, independent journals, self-publishing, free science forums and other media tools, accept public testing, and break through systematic suppression.</div>
+                         </div>
+                     </div>
+                </div>
+
+        </section>
+
+        <section id="articles">
+            <div class="section-title">
+                <h2>Dongfang Scientific Works</h2>
+            </div>
+            
+            <div class="scroll-container">
+                <div class="year-scroll">
+                    <div class="year-item">
+                        <h3 class="year-title">2021 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202101.html" target="_blank">On the Relativity of the Speed of Light</a></li>
+                            <li><a href="https://mathnature.github.io//MN202102.html" target="_blank">The Morbid Equation of Quantum Numbers</a></li>
+                            <li><a href="https://mathnature.github.io//MN202103.html" target="_blank">Relativistic Equation Failure for LIGO Signals.</a></li>
+                            <li><a href="https://mathnature.github.io//MN202104.html" target="_blank"> Dongfang Modified Equations of Molecular Dynamics</a></li>
+                            <li><a href="https://mathnature.github.io//MN202105.html" target="_blank">Dongfang Angular Motion Law and Operator Equations</a></li>
+                            <li><a href="https://mathnature.github.io//MN202106.html" target="_blank">Dongfang Com Quantum Equations of LIGO Signal</a></li>
+                            <li><a href="https://mathnature.github.io//MN202107.html" target="_blank"> Com Quantum Proof of LIGO Binary Mergers Failure</a></li>
+                            <li><a href="https://mathnature.github.io//MN202108.html" target="_blank">Dongfang Modified Equations of Electromagnetic Wave</a></li>
+                            <li><a href="https://mathnature.github.io//MN202109.html" target="_blank">Nuclear Force Constants Mapped by Yukawa Potential</a></li>
+                            <li><a href="https://mathnature.github.io//MN202110.html" target="_blank">The End of Yukawa Meson Theory of Nuclear Forces</a></li>
+                       </ul>
+                    </div>
+                    
+                    <div class="year-item">
+                        <h3 class="year-title">2022 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202201.html" target="_blank"> The End of Klein-Gordon Equation for Coulomb Field</a></li>
+                            <li><a href="https://mathnature.github.io//MN202202.html" target="_blank"> The End of Teratogenic Simplified Dirac Hydrogen Equations</a></li>
+                            <li><a href="https://mathnature.github.io//MN202203.html" target="_blank">Dongfang Solution of Induced Second Order Dirac Equations</a></li>
+                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">The End of Isomeric Second Order Dirac Hydrogen Equations</a></li>
+                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">The End of True Second Order Dirac Hydrogen Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">Dongfang Challenge Solution of Dirac Hydrogen Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">Neutron State Solution of Dongfang Modified Dirac Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">Ground State Solution of Dongfang Modified Dirac Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202209.html" target="_blank">The End of Dirac Hydrogen Equation in One Dimension</a></li>
+                            <li><a href="https://mathnature.github.io//MN202210.html" target="_blank"> Multiple Morbid Mathematics of Dirac Electron Theory</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="year-item">
+                        <h3 class="year-title">2023 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202301.html" target="_blank">Broad Spectrum Solutions of Associated Legendre Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202302.html" target="_blank">Dongfang Special Entangled Spherical Harmonic Functions</a></li>
+                            <li><a href="https://mathnature.github.io//MN202303.html" target="_blank">Dongfang Special Entangled Solution of Schrödinger Hydrogen Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202304.html" target="_blank">Dongfang Special Entangled Schrödinger Wave Function of Hydrogen</a></li>
+                            <li><a href="https://mathnature.github.io//MN202305.html" target="_blank">Dongfang Special Entangled Spherical Solution of Laplace Equation</a></li>
+                        </ul>
+                    </div>
+  
+                    <div class="year-item">
+                        <h3 class="year-title">2024 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202401.html" target="_blank">Dongfang General Entangled Spherical Harmonic Functions</a></li>
+                            <li><a href="https://mathnature.github.io//MN202402.html" target="_blank">Dongfang General Entangled Solution of Schrödinger Hydrogen Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202403.html" target="_blank">Dongfang General Entangled Schrödinger Wave Function of Hydrogen</a></li>
+                            <li><a href="https://mathnature.github.io//MN202404.html" target="_blank">Dongfang General Entangled Spherical Solution of Laplace Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202405.html" target="_blank">The Steady-State Entangled Solution of Dongfang Real Wave Equation</a></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="year-item">
+                        <h3 class="year-title">2025 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202501.html" target="_blank">Dongfang Brief General Solutions to Congruence Equations</a></li>
+                            <li><a href="https://mathnature.github.io//MN202502.html" target="_blank">The Logical Entropy Change of Euler Infinite Descent</a></li>
+                            <li><a href="https://mathnature.github.io//MN202503.html" target="_blank">Dongfang Special Comfactor Solution to Euler Diophantine Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202504.html" target="_blank">Dongfang Special Coprime Solutions to Euler Diophantine Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202505.html" target="_blank">Dongfang General Comfactor Solutions to Euler Diophantine Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202506.html" target="_blank">Dongfang General Coprime Solutions to Euler Diophantine Equation</a></li>
+                            <li><a href="https://mathnature.github.io//MN202507.html" target="_blank"> The End of Euler Proof of Cubic Fermat Last Theorem</a></li>
+                            <li><a href="https://mathnature.github.io//MN202508.html" target="_blank">Dongfang Proof of the Third Power Fermat Last Theorem</a></li>
+                            <li><a href="https://mathnature.github.io//MN202509.html" target="_blank">Dongfang Proof of the Fourth Power Fermat Last Theorem</a></li>
+                            <li><a href="https://mathnature.github.io//MN202510.html" target="_blank">Dongfang High-order Solution to Euler Diophantine Equation</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="poetry">
+            <div class="section-title">
+                <h2>Dongfang popular science works</h2>
+            </div>
+            
+            <div class="scroll-container">
+                <div class="year-scroll">
+                    <div class="year-item">
+                        <h3 class="year-title">2021 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202101.html" target="_blank">科普散文：共量子论宣言</a></li>
+                            <li><a href="https://mathnature.github.io//MN202102.html" target="_blank">科普诗：中秋夜</a></li>
+                            <li><a href="https://mathnature.github.io//MN202103.html" target="_blank">科普诗：量子泪</a></li>
+                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">科普诗：黑洞的传说</a></li>
+                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">科普诗：梦幻引力波</a></li>
+                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">田园诗：雨润花</a></li>
+                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">抒情诗：花凋零</a></li>
+                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">科普诗：天道</a></li>
+                            <li><a href="https://mathnature.github.io//MN202209.html" target="_blank">抒情诗：青春</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="year-item">
+                        <h3 class="year-title">2022 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202201.html" target="_blank">科普诗：大别山少年</a></li>
+                            <li><a href="https://mathnature.github.io//MN202202.html" target="_blank">科普诗：混沌量子引力</a></li>
+                            <li><a href="https://mathnature.github.io//MN202203.html" target="_blank">科普诗：弯曲的心</a></li>
+                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">科普诗：电子的控诉</a></li>
+                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">抒情诗：今日学术咏叹</a></li>
+                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">科普诗：孙子定理古与今</a></li>
+                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">科普诗：忘掉物理的浮华</a></li>
+                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">抒情诗：东方物理的悲怆</a></li>
+                            <li><a href="https://mathnature.github.io//MN202210.html" target="_blank">抒情诗：梧桐山的鹰</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="year-item">
+                        <h3 class="year-title">2023 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202301.html" target="_blank">短篇小说：晨安</a></li>
+                            <li><a href="https://mathnature.github.io//MN202302.html" target="_blank">短篇小说：秋韵</a></li>
+                            <li><a href="https://mathnature.github.io//MN202303.html" target="_blank">短篇小说：课堂</a></li>
+                        </ul>
+                    </div>
+  
+                    <div class="year-item">
+                        <h3 class="year-title">2024 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202401.html" target="_blank">散文诗：浮云幽灵</a></li>
+                            <li><a href="https://mathnature.github.io//MN202402.html" target="_blank">报告文学：共量子论的曲折历程</a></li>
+                            <li><a href="https://mathnature.github.io//MN202403.html" target="_blank">科学宣言：东方科学的历史使命</a></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="year-item">
+                        <h3 class="year-title">2025 Volume</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202501.html" target="_blank">叙事诗：楠竹宫殿第一章百灵和白鹭</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="course">
+            <div class="section-title">
+                <h2>Tortuous Course of Com Quantum Theory</h2>
+            </div>
+            
+            <div class="intro-text">
+                <p class="justified-text">Unifying macroscopic and microscopic theories is a dream pursuit for theoretical physicists worldwide. Achieving this great cause efficiently requires mutual assistance and cooperation, not violence and struggle.</p>
+               <p class="justified-text">On the night of the Mid-Autumn Festival in 1975, in a remote village deep in the Dabie Mountains, an old man with a northern accent sat under the old locust tree at the village entrance, recounting his personal experiences to the children gathered around him.</p>
+               <p class="justified-text">"It is unbearable to look back upon, yet it must never be forgotten... The invaders were exceptionally cruel and inhuman, and their atrocities were beyond description. There was a traitor in the village whom everyone loathed, wishing they could tear him to pieces. That traitor had rat-like eyes. He was educated, held a diploma, and spoke foreign languages. He had originally worked in the city with his parents, but he ran back alone to the old family home in the village, where he attempted to forcibly take away a young girl. The girl was fifteen that year, graceful, beautiful, and quiet. Her father had gone to the front lines years earlier to resist the invaders and had sacrificed his life. Her mother was a decent woman. It wasn't that she disliked the man's appearance, but because he had been morally corrupt since childhood, she firmly refused, and the girl herself hated him very much. The villagers all called him "Rat Eye." Rat Eye, enraged and humiliated, spewed filthy language: 'You two women are nothing but frogs at the bottom of a well, self-righteous and narcissistic. Think you are fragrant, do you? Without the Imperial Army's certification, it's false fragrance! False fragrance stinks to the high heaven!' After Rat Eye left, the village was quiet for over ten days. Unexpectedly, on the night of the Mid-Autumn Festival, two invaders' vehicles suddenly entered the village. Dozens of invasion soldiers, carrying knives and rifles, conducted a looting. The villagers watched helplessly as everything was robbed clean. After the looting ended, the invaders rushed into the girl's home like mad dogs. The small courtyard immediately filled with chirping howls. Soon after, the heart-wrenching cries of the mother and daughter were heard. A neighbor recognized Rat Eye's voice; he was speaking a foreign language, but his voice was unchanged. The pack of beastly invaders gang-raped the mother and daughter. During the struggle, the girl bit off one invader's ear. The invaders immediately bayoneted the girl and her mother to death. An old man at the village entrance recognized Rat Eye's figure; that night he wore black glasses and had his collar turned up extremely high, covering most of his face. Rat Eye committed countless evils, yet faced no heavenly retribution. Near the end of the Liberation War, he fled with his entire family to Taiwan."</p>
+                <p class="justified-text">The bloodstains of history are not yet dry, yet the same betrayal, in the name of science, is being staged once more within the halls of academia. The question of how many Rat Eyes cloaked in scientific guise have long occupied crucial positions while lacking substantive scientific contributions constitutes a problem worthy of systematic reflection. However, for those holding high academic offices, if they have not only failed to achieve anything that advances science but have instead devoted themselves to suppressing, strangling, spreading rumors, slandering, stigmatizing, and even attempting to harm groundbreaking scientific discoveries and their discoverers, such conduct undoubtedly represents a prolonged departure from the scientific spirit and academic ethics.</p>
+                <p class="justified-text">The Com Quantum Theory, which unifies macroscopic and microscopic quantum phenomena, was born in China. Its core principles were first proposed by Dongfang in May 1986. Although the precise equations required to describe different macroscopic systems vary, this research was shelved for a long time after key mathematical derivations were completed, due to a lack of authoritative experimental data on macroscopic quantization. It was not until February 11, 2016, when the LIGO collaboration released detailed observational data of the GW150914 gravitational wave event, that Dongfang conducted systematic simulations and comparisons based on different Com Quantum Theory models, ultimately revealing the precise quantization laws governing the frequency distribution and dynamic evolution of the gravitational wave signal. The quantization equations in the paper attracted widespread interest from the international academic community, but the core principles of Com Quantum Theory remain unpublished. After the original equations for binary star merger frequency calculations were plagiarized, misinterpreted, and misapplied in a paper published in a renowned international journal, arXiv decided to publish Dongfang original manuscript. Years later, despite repeated invitations from prestigious journals such as Nature Physics and The Astrophysical Journal, no expected response has been received from Dongfang. Years later, both Nature Physics and The Astrophysical Journal solicited a manuscript from Dongfang, but he refused to provide the expected response.</p>
+                <p class="justified-text">In 2016, Europe launched the Quantum Technology Flagship, but failed to successfully decipher the quantization laws of LIGO’s GW150914 signal wave. In 2019, Google announced the achievement of "quantum supremacy," but failed to make the due substantive breakthroughs in revealing the mathematical essence of quantum mechanics. Although it would take only one year to construct the complete mathematical framework of Com Quantum Theory, as a researcher from a vulnerable group, Dongfang decided to postpone organizing the main results of Com Quantum Theory, leaving ten years for the mainstream scientific community to gain priority in unified quantum theory research. Considering that arXiv.org had once transferred the submission ID originally belonging to Dongfang ’s first submitted paper to subsequent researchers, and that China’s preprint service system either invited submissions first and then closed the account or arbitrarily altered paper authorship information, Dongfang decided to completely abandon the inefficient and motivationally opaque traditional academic journals and arXiv.org, and began using the independent journal Mathematics & Nature to efficiently publish groundbreaking series of research results in mathematics and theoretical physics. In 2019, a domestic researcher colluded with a retired Italian professor to frame Dongfang , resulting in the deletion of his ResearchGate academic account along with the foundational paper of Com Quantum Theory. In 2020, Dongfang re-registered a ResearchGate account and successively published dozens of original mathematics and physics papers, but due to an irreparable hard disk failure, the foundational paper of Com Quantum Theory could not be recovered. In 2021, Dongfang publicly declared that the systematic writing and publication plan for Com Quantum Theory would be launched in 2028. In 2025, Europe launched another quantum strategy, explicitly planning to make Europe the "global quantum technology leader" by 2030. Dongfang decided to further postpone the launch of systematic research on Com Quantum Theory from 2030 to 2038, hoping that the European quantum strategy would achieve a breakthrough in unified quantum theory first, thereby providing the global scientific community with more ample space for development.</p>
+                <p class="justified-text">Any groundbreaking theoretical advance in the history of science must derive its value from rigorous logical self-consistency and a predictive power that transcends its era. A truly insightful original manuscript, even if temporarily obscured, ought to be recognized through purely logical review by peers with academic conscience and discernment. Yet it is lamentable that such exceptional judgment is astonishingly absent in today’s mainstream mathematical and physical sciences community in China, revealing the truth behind nearly all its large-scale research endeavors. The contrast is deeply ironic: while academic establishments in Europe and America, holding traditional discursive authority in mathematics and physics, have never accused Com Quantum Theory of “academic misconduct” or “pseudoscience,” the most intense and norm-violating systematic stigmatization has originated precisely within the theory’s native land. ByteDance's artificial intelligence "Doubao," on the grounds that a significant body of Dongfang 's research findings were not published in renowned European and American journals, has incorporated anonymous rumors and stigmatizing information targeting Dongfang into its underlying logic. It thereby engages in relentless slander against the Unitary Principle and Com Quantum Theory at any time and in any context, in blatant violation of fundamental academic norms, exposing the blatant hostility to the spirit of science.</p>
+	<p class="justified-text">The international scientific community’s disregard for the successful application of Com Quantum Theory’s inferences to renowned data analyses is disingenuous, while the systemic suppression, strangulation, rumor-mongering, defamation, and framing of its founder by China’s mainstream scientific community is real. The tide of history has never been stoppable; Com Quantum Theory will ultimately unleash its immense scientific energy.</p>
+            </div>
+        </section>
+
+<!-- 在第四部分之后添加 -->
+<section id="mission">
+    <div class="section-title">
+        <h2>Historical Mission of Dongfang Science</h2>
+    </div>
+    
+    <div class="mission-temple">
+        <div class="mission-content">
+            <div class="mission-column">
+                <div class="mission-item">
+                    <i class="fas fa-crown"></i>
+                    <h3>A Civilizational Relay Connecting Past and Future</h3>
+                    <p class="justified-text">Europe pioneered the mathematical system and the classical paradigm of natural science, establishing the irreplaceable systemic meta-rules of modern civilization. From the rigorous axiomatic system of Euclid's Elements to the edifice of classical mechanics constructed in Newton's Mathematical Principles of Natural Philosophy; from the independent creation of calculus by Leibniz and Newton, which ushered in the era of mathematical analysis, to Faraday's revelation of the law of electromagnetic induction through intuitive experimentation, Europe's scientific pioneers laid a solid rational foundation and scientific paradigm for human civilization through systematic theoretical construction and experimental exploration. Particularly Faraday, this bookbinding apprentice of humble origins with almost no formal education, yet with extraordinary intuition and simple experiments, insightfully uncovered nature's deeply hidden electromagnetic mysteries. His discoveries not only directly led the electrical revolution but also became the cornerstone of modern electrical civilization and technological application. His scientific spirit continues to inspire countless explorers today, demonstrating the enduring value of theory and practice.</p>
+                </div>
+            </div>
+            
+            <div class="mission-column">
+                <div class="mission-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Diverse and Complementary Scientific Paradigms</h3>
+                    <p class="justified-text">The United States' outstanding achievements in applied science and technological innovation demonstrate the immense energy released by the integration of scientific practice and theory. From the Wright brothers' first powered flight to the lunar landing feat of the Apollo program, and from the invention of the transistor at Bell Labs to the birth of the Internet, the U.S. has consistently stood at the forefront of technological revolution. The rise of Silicon Valley has not only reshaped the global industrial landscape but also spurred a new wave of technological advancement represented by information technology, artificial intelligence, and biotechnology. NASA's deep space exploration, SpaceX's breakthroughs in commercial spaceflight, alongside fundamental contributions by numerous scientists in physics, chemistry, and medicine, together form a magnificent picture of the American science and engineering system. These accomplishments stem not only from substantial R&D investment and an innovative culture but also benefit from an open research ecosystem, rooted in its native soil, that encourages academic freedom and collaboration among elites, providing continuous momentum and paradigmatic reference for global scientific and technological progress.
+
+</p>
+                </div>
+            </div>
+            
+            <div class="mission-column">
+                <div class="mission-item">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>The Epochal Contribution of Eastern Wisdom</h3>
+                    <p class="justified-text">The Eastern world began relatively late in constructing the framework of modern science. In fundamental disciplines such as mathematics and physics, the mainstream focus remains on learning, digesting, and extending Western-established theoretical systems, while the mainstream academic community maintains a stance of systematic suppression and destruction toward any non-self-originated, groundbreaking new principles and theories. However, in the technological domain, China has achieved remarkable breakthroughs in recent years across various applied fields including aerospace, communications, and new energy, demonstrating formidable engineering implementation and integrated innovation capabilities. Against this backdrop, the scientific framework of Dongfang is dedicated to building a bridge connecting Eastern and Western scientific cognition. The Unitary Principle, the Principle of Logical Entropy, the Law of Angular Motion, and the Entangled Spherical Harmonic Function, among others, with their profound logical rigor and mathematical elegance, provide a new paradigm for understanding the unity of complex systems and information evolution. These contributions are expected to exert a far-reaching influence on the development of mathematics, fundamental sciences, and future social sciences, thereby promoting a more inclusive and dialogical process of scientific civilization.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mission-declaration">
+            <div class="declaration-text">
+                <h4>Declaration of Dongfang Science</h4>
+	<p class="justified-text">Dongfang Science is fundamentally defined by the proposition of the Unitary Principle and the Principle of Logical Entropy, the discovery of the Entangled Spherical Harmonic Function, and the establishment of Com Quantum Theory—a vast, verifiable theoretical system. It represents a meta-breakthrough in scientific paradigms, aimed at resolving fundamental paradoxes and cognitive bottlenecks in modern science by establishing new mathematical and physical foundations for understanding natural laws, rather than merely supplementing or revising existing frameworks.</p>
+	<p class="justified-text">As a common spiritual heritage of humanity, science must not be monopolized by any specific group or ideology. The mission of Dongfang Science is to break such monopolies within the scientific domain and foster a diversified evolution of scientific thought. True science transcends national boundaries, and the pursuit of truth depends on the collaboration of global intellect. Thus, Dongfang Science consciously serves as a civilizational bridge, integrating diverse knowledge systems to provide robust rational support and humanistic insight for global scientific advancement and mutual civilizational learning.</p>
+	<p class="justified-text">The healthy development of science necessitates a methodology rooted in rigorous logic, opposing all forms of scientific dogmatism and authoritarianism. Scientific truth is established solely through strict logical deduction and experimental verification—never by decree of so-called "scientific consensus." As these new theories, endowed with profound mathematical depth and predictive power, continue to mature, it becomes imperative for the international scientific community to return to normative procedures grounded in logical deduction and empirical validation.</p>
+	<p class="justified-text">Dongfang Science is committed to constructing more open and inclusive platforms for scientific discourse, encouraging researchers from all backgrounds and perspectives to engage in free expression and innovative inquiry. Only through the vigorous exchange of ideas can science achieve genuine progress. Looking forward, by integrating the unique paradigms offered by Dongfang Science, the scientific enterprise can potentially achieve a leap in civilizational cognition.</p>
+	<p class="justified-text">Guided by this historical mission, the scientific framework of Dongfang will uphold a rigorous logical structure, an open academic ethos, and a steadfast commitment to scientific truth, striving tirelessly to steer human science toward a more mature, wiser, and more sustainable civilization. The path to truth is long, but we will seek it relentlessly; the light of science shines brilliantly, illuminating humanity's path forward.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </div>
+
+
+
+    <footer>
+        <div class="container footer-content">
+            <p>Editorial Board of Mathematics and Nature © 2021–Present</p>
+            <p>Official Website of Dongfang Scientific Thought</p>
+            <p>Knowledge Sharing | Open Science | Independent Research</p>
+        </div>
+    </footer>
+
+    <script>
+        // 添加滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. 滚动条定位到最新年份
+            const scrollContainers = document.querySelectorAll('.scroll-container');
+            scrollContainers.forEach(container => {
+                const lastYearItem = container.querySelector('.year-item:last-child');
+                if (lastYearItem) {
+                    container.scrollLeft = lastYearItem.offsetLeft - container.offsetLeft - 20;
+                }
+            });
+
+            // 2. 卡片动画效果（您原有的代码）
+            const animatedElements = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>

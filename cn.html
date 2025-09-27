@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东方学帝科学思想 - 数学与自然编委会</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --gold-color: #f1c40f;
+            --light-color: #ecf0f1;
+            --dark-color: #1a1a2e;
+            --success-color: #27ae60;
+            --poetry-accent: #e67e22; /* 科普作品特色颜色 */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #16213e 100%);
+            color: var(--light-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: rgba(26, 26, 46, 0.9);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+            background: linear-gradient(45deg, var(--gold-color), #e74c3c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--gold-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--gold-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-color);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* 英雄区域样式 */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a2e"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23244b75" stroke-width="1"/></svg>');
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 40%, var(--dark-color) 90%);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--gold-color);
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+        }
+        
+        .intro-text {
+            font-style: normal;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-left: 4px solid var(--accent-color);
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+.justified-text {
+  text-align: justify;
+}
+
+/* 1. 引言部分段落 */
+.intro-text p {
+    text-indent: 2em;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 2. 第四部分内容段落 - 增加特异性 */  
+.container > p {  /* 只针对直接子段落，不影响原理框 */
+    text-indent: 2em;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 3. 增强原理框的选择器特异性 */
+.container .principle-box p,
+.principle-box p {
+    text-indent: 0 !important;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 4. 第五部分使命段落 */
+.mission-item p {
+    text-indent: 0 !important;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 5. 第四部分宣言段落 */
+.mission-declaration p {
+    text-indent: 2em !important;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* 排除不需要缩进的区域 */
+.card-header p, 
+.year-title p,
+.section-title p,
+footer p,
+nav p {
+    text-indent: 0 !important;
+}
+        
+        /* 内容部分样式 */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+            padding: 0 20px;
+            background: var(--dark-color);
+            position: relative;
+            z-index: 1;
+            color: var(--gold-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            z-index: 0;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 28% 28% 43%; /* 原理框各28%，纲领框44% */
+    gap: 25px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr; /* 小屏幕上单列显示 */
+    }
+}
+
+        .card {
+            background: linear-gradient(145deg, #1e2a3f, #192231);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, var(--accent-color), #6c3483);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card-body li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .card-body li::before {
+            content: '•';
+            color: var(--gold-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+/* 专门针对科学著作区域的链接样式 */
+.scroll-container .year-item a {
+    color: #8ecfff;  /* 科学著作链接使用浅蓝色 */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.scroll-container .year-item a:hover {
+    color: var(--gold-color);  /* 悬停时变为金色 */
+    text-decoration: underline;
+}        
+        .card-body a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .card-body a:hover {
+            color: var(--gold-color);
+            text-decoration: underline;
+        }
+
+.principle-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px -10px; /* 合并左右负margin */
+   /* border-left: 4px solid var(--success-color); */  /* 注销纲领左括号 */
+    text-align: left;
+    box-sizing: border-box;
+    width: calc(100% + 20px); /* 合并宽度调整 */
+}
+
+.principle-box h4 {
+    color: var(--success-color);
+    display: inline;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.principle-box p {
+    display: inline;
+    text-indent: 0;
+    margin: 0;
+    line-height: -1.6;
+}
+        
+        /* 页脚样式 */
+        footer {
+            background: rgba(10, 10, 20, 0.95);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-content p {
+            margin: 10px 0;
+            color: #95a5a6;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* 卷轴样式 */
+        .scroll-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            padding: 20px 0;
+        }
+        
+        .year-scroll {
+            display: flex;
+            padding: 10px;
+        }
+        
+        .year-item {
+            min-width: 280px;
+            margin: 0 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .year-title {
+            color: var(--gold-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* 科普作品特色样式 */
+        #poetry .year-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(230, 126, 34, 0.3);
+        }
+        
+        #poetry .year-title {
+            color: var(--poetry-accent);
+            border-bottom: 1px solid var(--poetry-accent);
+        }
+        
+        #poetry .scroll-container .year-item a {
+            color: #ffb366;  /* 科普作品链接使用橙色 */
+        }
+
+/* 第五部分独特样式 */
+.mission-temple {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    border-radius: 15px;
+    padding: 0px;
+    margin: 0px 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.mission-temple::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-color), var(--accent-color), var(--gold-color));
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.mission-column {
+    text-align: left;
+}
+
+.mission-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    height: 100%;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mission-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mission-item i {
+    font-size: 3rem;
+    color: var(--gold-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.mission-item h3 {
+    color: var(--gold-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.mission-item p {
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.mission-declaration {
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 4px solid var(--gold-color);
+    padding: 30px;
+    border-radius: 0 10px 10px 0;
+    margin-top: 20px;
+}
+
+.declaration-text h4 {
+    color: var(--gold-color);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.declaration-text p {
+    font-size: 1.0rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .mission-temple {
+        padding: 20px;
+    }
+    
+    .mission-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-item {
+        padding: 20px;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="logo-icon fas fa-atom"></i>
+                <h1>东方学帝科学思想</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro">简介</a></li>
+                    <li><a href="#principles">科学原理、科学纲领</a></li>
+                    <li><a href="#articles">科学著作</a></li>
+                    <li><a href="#poetry">科普著作</a></li>
+                    <li><a href="#course">历程</a></li>
+                     <li><a href="#mission">使命</a></li>
+               </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+        <section id="intro">
+            <h2>东方学帝科学思想</h2>
+            <p>数学与自然编委会</p>
+            
+            <div class="intro-text">
+                <p class="justified-text">一群幽灵，身披诡异的灰纱，绣着"科学共识"的标志，遮挡日月之光，几分猥琐，几分邪恶，在地球的上空游荡，从西方到东方，从东方到西方。一只残疾的伯劳鸟，四处追捕出生不久的幼小生灵，借助树刺轻巧穿透猎物的六腑五脏，不时发出刺耳的媚笑声，向云空之下的众生宣示横行天空的特权和威望。</p>
+                <p class="justified-text">当今，幽灵的魔影严密笼罩着科学精神。灰纱遮挡着幽灵的真容，阴沉的声音从灰纱边缘倾泻而下，在天地之间此伏彼起：我即共识，普渡众生，淡泊名利，天下种子和果实皆需献祭于上天；违命而逆潮流广种福田者，皆为异端邪派，注定永堕黑暗。幽灵巡天遁地，捕获新的科学思想，挥舞污名化的无形利剑，刺向最勤劳的弱势耕耘者的心灵，企图令其不再发出声息。高堂广厦，酣歌醉舞，昼夜狂欢，只为了一次又一次掠夺的成功和扼杀新生的喜悦。不是伯劳，胜似伯劳。</p>
+	<p class="justified-text">觉醒吧，伟大的科学思想，放弃隐忍终将感化幽灵的不切实际的幻想，回归自然。让狂风播撒种子，让雨露滋润生命，在原野、在河岸、在湖畔、在山间、在深涧、在悬崖峭壁生根发芽。灿烂的阳光永远照耀大地，生命的力量不可阻挡。</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="principles">
+            <div class="section-title">
+                <h2>科学原理和科学纲领</h2>
+            </div>
+           
+            <div class="cards-container">
+                <div class="card animated">
+                    <div class="card-header">
+                        <h3>东方学帝归一原理</h3>
+                    </div>
+                    <div class="card-body">
+ 	         <div class="principle-box">
+                         	<div>   <h4>简缩表述（物理学术语境）</h4> </div>
+		<div> 不同的度规之间存在确定的变换关系，自然规律本身不会因为选择不同的度规而改变。当将同一自然规律在不同度规下的各种数学表示形式变换到一种度规下时，结果必须与该度规下的固有形式相同，1=1，变换是归一的。 </div>
+                        	<div>   <h4>扩展表述（普适哲学语境）</h4> </div>
+		<div>  同一命题的不同逻辑演绎系统存在确定的映射关系，命题的客观结论不会因为不同的演绎形式而改变。当将命题的结果在不同逻辑系统中的各种表述形式变换到一种逻辑系统中时，结果必须与该逻辑系统中的固有表述形式相同，1=1，变换是归一的。 </div>
+                         </div>
+                    </div>
+                </div>
+                
+                <div class="card animated">
+                    <div class="card-header">
+                        <h3>东方学帝逻辑熵原理</h3>
+                    </div>
+                    <div class="card-body">
+  	         <div class="principle-box">
+                        	<div>   <h4>扩展表述（普适哲学语境）</h4> </div>
+		<div>  逻辑系统中，包括定义与概念、前提条件、一切必要与充分条件、以及所有或然与必然因果关系在内的全部逻辑元素所承载总信息量，称为逻辑熵。前提条件为真时，具有最大置信度的逻辑演绎的逻辑熵最小且恒定不变。 </div>
+                         	<div>   <h4>简缩表述（数理逻辑语境）</h4> </div>
+		<div> 数学和物理命题的逻辑演绎系统中，所有前提条件、推理规则和结论关系构成的信息总量称为逻辑熵。当前提为真且推理有效时，最优证明路径的逻辑熵最小且保持恒定。 </div>
+                       </div>
+                    </div>
+                </div>
+                
+                <div class="card animated">
+
+                    <div class="card-header">
+                        <h3>东方学帝科学纲领</h3>
+                    </div>
+                    <div class="card-body">
+	         <div class="principle-box">
+                         <div>描述数理规律和自然现象的理论必须是严格逻辑合理的，正确的理论是人类文明不断进步的保证，错误的理论或需要修正或必须摒弃，科学理论的建立和发展必须遵循一些基本纲领。</div>
+                        	<div>   <h4>第一条</h4> 逻辑具有强大的精神力量，逻辑自洽和自律是创立和发展科学理论的基本准则。</div>
+                         	<div>   <h4>第二条</h4> 包含实验原理、数据观测或数据制作、现象解释，自然科学理论的逻辑必须局部和整体符合归一原理和逻辑熵原理。违背归一原理的逻辑演绎，结论具有不确定性，起源于逻辑系统的畸形定义、不实假设或歧义模型，因而无效。逻辑熵变的逻辑演绎可能导致逻辑漏洞而必须修复；概念漂移逻辑熵变的逻辑属性发生了根本变化，决定了歪曲的因果关系，逻辑是错误的。</div>
+                         	<div>   <h4>第三条</h4> 系统性修正的观测数据、大规模杜撰的实验数据或对实验现象的错误解释，不构成任何违背基本常识的逻辑演绎及其结论的有效证据。推翻不实前提与失真实验报告，修正或颠覆错误理论，是科学理论发展不可抗拒的内在要求，具有深远的科学意义。</div>
+                         	<div>   <h4>第四条</h4> 逻辑的合理性不由少数同行的赞成票被高影响力媒介包装成科学共识的概念混淆技术所定义，而必须经受历史性的广泛实践考验，逻辑自洽的优先性高于曲解科学概念的鼓噪性主张。</div>
+                         	<div>   <h4>第五条</h4> 弱势研究者群体的独到科学发现，通过独立网站、独立期刊、自助出版、自由科学论坛等传媒工具向世界传播，接受大众检验，突破系统性的压制，是合法有效的。</div>
+                         </div>
+                     </div>
+                </div>
+
+        </section>
+
+        <section id="articles">
+            <div class="section-title">
+                <h2>东方学帝科学著作</h2>
+            </div>
+            
+            <div class="scroll-container">
+                <div class="year-scroll">
+                    <div class="year-item">
+                        <h3 class="year-title">2021年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202101.html" target="_blank">论光速的相对性</a></li>
+                            <li><a href="https://mathnature.github.io//MN202102.html" target="_blank">量子数病态方程</a></li>
+                            <li><a href="https://mathnature.github.io//MN202103.html" target="_blank">LIGO信号波相对论方程失效</a></li>
+                            <li><a href="https://mathnature.github.io//MN202104.html" target="_blank">东方学帝分子动力学修正方程</a></li>
+                            <li><a href="https://mathnature.github.io//MN202105.html" target="_blank">东方学帝角动定律和算符演化方程</a></li>
+                            <li><a href="https://mathnature.github.io//MN202106.html" target="_blank">LIGO信号的东方学帝共量子论方程</a></li>
+                            <li><a href="https://mathnature.github.io//MN202107.html" target="_blank">LIGO螺旋双黑洞合并失败</a></li>
+                            <li><a href="https://mathnature.github.io//MN202108.html" target="_blank">电磁波的东方学帝修正方程</a></li>
+                            <li><a href="https://mathnature.github.io//MN202109.html" target="_blank">Yukawa势映射的核力常数</a></li>
+                            <li><a href="https://mathnature.github.io//MN202110.html" target="_blank">Yukawa介子理论的终结</a></li>
+                       </ul>
+                    </div>
+                    
+                    <div class="year-item">
+                        <h3 class="year-title">2022年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202201.html" target="_blank">Klein-Gordon-Coulomb方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io//MN202202.html" target="_blank">致畸简化Dirac氢方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io//MN202203.html" target="_blank">诱导二阶Dirac方程的东方学帝解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">异构二阶狄拉克氢方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">真实二阶Dirac方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">Dirac氢方程的东方学帝挑战解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">东方学帝修正Dirac方程的中子态解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">东方学帝修正Dirac方程的基态解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202209.html" target="_blank">一维氢原子Dirac方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io//MN202210.html" target="_blank">Dirac电子理论的多重病态数学</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="year-item">
+                        <h3 class="year-title">2023年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202301.html" target="_blank">缔合勒让德方程的东方学帝广谱解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202302.html" target="_blank">东方学帝特殊纠缠球谐函数</a></li>
+                            <li><a href="https://mathnature.github.io//MN202303.html" target="_blank">薛定谔方程的东方学帝特殊纠缠解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202304.html" target="_blank">氢的东方学帝特殊纠缠波函数</a></li>
+                            <li><a href="https://mathnature.github.io//MN202305.html" target="_blank">拉普拉斯方程的东方学帝特殊纠缠球面解</a></li>
+                        </ul>
+                    </div>
+  
+                    <div class="year-item">
+                        <h3 class="year-title">2024年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202401.html" target="_blank">东方学帝广义纠缠球谐函数</a></li>
+                            <li><a href="https://mathnature.github.io//MN202402.html" target="_blank">薛定谔方程的东方学帝广义纠缠解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202403.html" target="_blank">氢的东方学帝广义纠缠波函数</a></li>
+                            <li><a href="https://mathnature.github.io//MN202404.html" target="_blank">拉普拉斯方程的东方学帝广义纠缠解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202405.html" target="_blank">东方学帝实数波动方程的广义纠缠解</a></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="year-item">
+                        <h3 class="year-title">2025年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202501.html" target="_blank">同余方程组的东方学帝简约通解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202502.html" target="_blank">欧拉无穷递降的逻辑熵变</a></li>
+                            <li><a href="https://mathnature.github.io//MN202503.html" target="_blank">欧拉丢番图方程的东方学帝特殊共因子解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202504.html" target="_blank">欧拉丢番图方程的东方学帝特殊互质解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202505.html" target="_blank">欧拉丢番图方程的东方学帝广义共因子解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202506.html" target="_blank">欧拉丢番图方程的东方学帝广义互质解</a></li>
+                            <li><a href="https://mathnature.github.io//MN202507.html" target="_blank">立方费马大定理Euler证明的终结</a></li>
+                            <li><a href="https://mathnature.github.io//MN202508.html" target="_blank">立方费马大定理的东方学帝证明</a></li>
+                            <li><a href="https://mathnature.github.io//MN202509.html" target="_blank">四次方费马大定理的东方学帝证明</a></li>
+                            <li><a href="https://mathnature.github.io//MN202510.html" target="_blank">欧拉丢番图方程的东方学帝高阶解</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="poetry">
+            <div class="section-title">
+                <h2>东方学帝科普著作</h2>
+            </div>
+            
+            <div class="scroll-container">
+                <div class="year-scroll">
+                    <div class="year-item">
+                        <h3 class="year-title">2021年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202101.html" target="_blank">科普散文：共量子论宣言</a></li>
+                            <li><a href="https://mathnature.github.io//MN202102.html" target="_blank">科普诗：中秋夜</a></li>
+                            <li><a href="https://mathnature.github.io//MN202103.html" target="_blank">科普诗：量子泪</a></li>
+                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">科普诗：黑洞的传说</a></li>
+                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">科普诗：梦幻引力波</a></li>
+                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">田园诗：雨润花</a></li>
+                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">抒情诗：花凋零</a></li>
+                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">科普诗：天道</a></li>
+                            <li><a href="https://mathnature.github.io//MN202209.html" target="_blank">抒情诗：青春</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="year-item">
+                        <h3 class="year-title">2022年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202201.html" target="_blank">科普诗：大别山少年</a></li>
+                            <li><a href="https://mathnature.github.io//MN202202.html" target="_blank">科普诗：混沌量子引力</a></li>
+                            <li><a href="https://mathnature.github.io//MN202203.html" target="_blank">科普诗：弯曲的心</a></li>
+                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">科普诗：电子的控诉</a></li>
+                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">抒情诗：今日学术咏叹</a></li>
+                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">科普诗：孙子定理古与今</a></li>
+                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">科普诗：忘掉物理的浮华</a></li>
+                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">抒情诗：东方物理的悲怆</a></li>
+                            <li><a href="https://mathnature.github.io//MN202210.html" target="_blank">抒情诗：梧桐山的鹰</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="year-item">
+                        <h3 class="year-title">2023年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202301.html" target="_blank">短篇小说：晨安</a></li>
+                            <li><a href="https://mathnature.github.io//MN202302.html" target="_blank">短篇小说：秋韵</a></li>
+                            <li><a href="https://mathnature.github.io//MN202303.html" target="_blank">短篇小说：课堂</a></li>
+                        </ul>
+                    </div>
+  
+                    <div class="year-item">
+                        <h3 class="year-title">2024年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202401.html" target="_blank">散文诗：浮云幽灵</a></li>
+                            <li><a href="https://mathnature.github.io//MN202402.html" target="_blank">报告文学：共量子论的曲折历程</a></li>
+                            <li><a href="https://mathnature.github.io//MN202403.html" target="_blank">科学宣言：东方科学的历史使命</a></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="year-item">
+                        <h3 class="year-title">2025年卷</h3>
+                        <ul>
+                            <li><a href="https://mathnature.github.io//MN202501.html" target="_blank">叙事诗：楠竹宫殿第一章百灵和白鹭</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="course">
+            <div class="section-title">
+                <h2>共量子论的曲折历程</h2>
+            </div>
+            
+            <div class="intro-text">
+                <p class="justified-text">实现宏观与微观理论的统一，是全世界理论物理研究者梦寐以求的事业。高效完成这一伟业，需要的是互助合作，而不是暴力与斗争。</p>
+                <p class="justified-text">1975年中秋夜，大别山深处一个偏僻的小村庄里，一位带着北方口音的老人，照旧坐在村口的老槐树下，给围坐的孩子们讲述自己亲身经历的往事。</p>
+                <p class="justified-text">“不堪回首，却不能遗忘……侵略者非常残暴，毫无人性，其恶行难以言表。村里有个汉奸，人人恨不能将他碎尸万段。那汉奸长着一双鼠眼，受过教育，有文凭，懂外语，原本和父母在城里做事，独自跑回村里老宅，企图强行带走一个女孩。女孩那年十五岁，亭亭玉立，漂亮文静。她爹几年前上前线抗击侵略者牺牲了。她娘是个本分人，并非嫌弃那人长相，而是因为他从小品行败坏，坚决不同意，女孩自己也非常厌恶他。村里人都叫他鼠眼儿。鼠眼儿恼羞成怒，满口污言秽语：‘两个妇道人家不过井底之蛙，自命清高、变态自恋。以为自己很香，是吗？没有皇军的鉴定，就是假香！假香，臭不可闻！’鼠眼走后，村里消停了十几天。不料中秋当晚，侵略者两辆车突然进村，几十个侵略军持刀扛枪进行扫荡，村民眼睁睁看着一切被抢光。抢掠结束后，侵略者像疯狗一样冲进女孩家，小院里顿时充满叽里呱啦的嚎叫。不一会儿，就传来了母女两人撕心裂肺的哭喊。邻居听见了鼠眼的声音，讲着外语，但嗓音未变。那群野兽侵略者轮奸了母女俩，女孩在反抗中咬掉了一个侵略者的耳朵，侵略者当即用刺刀将女孩和她娘捅死。村头有位老人认出了鼠眼的身形，那晚他戴着墨镜，衣领竖得极高，遮住了大半张脸。鼠眼作恶多端，竟未遭天报。解放战争快结束时，他举家逃往了台湾。”</p>
+                <p class="justified-text">历史的血痕未干，同样的背叛，却以科学的名义，在学术的殿堂里再次上演。多少披上科学外衣的鼠眼长期霸占重要位置却缺乏实质性科学贡献，构成一个值得系统性反思的问题。然而，身处学术要职，若不仅未有推动科学进步的建树，反而倾心倾力压制、扼杀、造谣、诽谤、污名化甚至企图谋害具有突破性的科学发现及其发现者，这种行为无疑是对科学精神与学术伦理的长期背离。</p>
+                <p class="justified-text">统一宏观与微观量子现象的共量子论诞生于中国，核心原理由东方学帝于1986年5月提出。描述不同宏观系统所需的精确方程存在差异，这项研究在完成重要数学推导后，因缺乏权威的宏观量子化实验数据支持而被长期搁置。直至2016年2月11日LIGO合作组发布GW150914引力波事件的详细观测数据，东方学帝基于不同共量子论模型开展系统模拟与比对，最终揭示了该引力波信号频率分布及动态变化的精确量子化规律。论文的量子化方程引起的国际学术界的广泛兴趣，但共量子论的核心原理处于未公开状态。在论文关于双星合并频率计算的原创方程被剽窃并且错误理解和运用发表在国际著名期刊后，arXiv才决定发表东方学帝的原始论文。多年之后，Nature Physics与《天体物理学报》等国际权威期刊曾向东方学帝邀稿，但东方学帝拒绝给予其预期的回应。</p>
+                <p class="justified-text">2016年，欧洲启动量子技术旗舰计划，但未能成功解析LIGO的GW150914信号波的量子化规律。2019年，谷歌宣布实现"量子霸权"，但未在揭示量子力学的数学本质方面取得应有的实质性突破。虽然只需要一年时间构建共量子论的完整数学框架，作为弱势群体研究者，东方学帝决定暂缓整理共量子论的主要成果，为主流科学界留出十年时间取得统一量子理论研究的优先权。考虑到arXiv.org曾经将原本属于东方学帝首次提交论文的编号转授于后续其他研究者，而中国预印服务系统或先邀稿然后关闭账号，或随意修改论文署名信息，东方学帝决定彻底放弃效率极低且动机不透明的传统学术期刊与预印本arXiv.org，开始利用独立期刊《Mathematics & Nature》高效率地发布数学和理论物理开创性系列研究成果。2019年，国内某研究人员联合意大利退休教授构陷，删除了东方学帝的ResearchGate学术账号连带共量子论奠基论文。2020年，东方学帝重新注册ResearchGate账号，相继发表了数十篇原创数学与物理论文，但因硬盘不可修复故障，共量子论奠基论文未能成功恢复。2021年，东方学帝公开声明将共量子论的系统性撰写与发表计划设定于2028年启动。2025年，欧洲再度推出量子战略，明确计划于2030年前将欧洲打造为"全球量子技术领导者"，东方学帝决定将共量子论的系统性研究启动时间由2030年进一步推迟至2038年，期待欧洲量子战略优先突破统一量子理论，为全球科学共同体提供更充分的发展空间。</p>
+                <p class="justified-text">科学史上任何原理性的伟大突破，其价值必奠基于逻辑的彻底自洽与超越时代的预言能力。一份真正蕴含真知的原创手稿，纵使暂被尘埃掩盖，如遇具备学术良知与洞察力的同行，理就基于纯粹的逻辑审阅而辨识其价值。可悲的是，此种卓越的判断力在当今中国数理主流学界竟然荡然无存，暴露了几乎所有庞大研究工程的真相。极具讽刺的对比在于：在数学与物理领域掌握传统话语权的欧美学术界，从未对“共量子论”作出“学术不端”或“伪科学”的指控。而最激烈、最失范的系统性污名化，却源自理论诞生的本土。字节跳动公司的人工智能“豆包”以东方学帝的大量研究成果未发表在欧美著名期刊为由，在底层逻辑吸纳了针对东方学帝的匿名谣言和污名化信息，随时随地对归一原理与共量子论进行背离基本学术规范的疯狂诽谤，暴露的正是对科学精神的公然敌视。
+
+这场围剿早已超越论争范畴，演变为有组织的迫害：2021至2022年间，知乎等平台发动持续网络暴力，从匿名诽谤升至公开的人身攻击；幕后势力更试图买通工作单位负责人，企图制造悲剧以从物理与精神层面彻底扼杀理论创立者。此阴谋流产後，2024年又有势力转战国际学术论坛，以匿名激将法设下险恶圈套，其真实动机已被彻底识破并暴露于阳光之下。这一切，深刻揭示了深植的学术权力核心信条：“权柄在握，无需创新；然汝若创新，必得归我，否则吾自有手段令汝湮灭于无形。” 这套潜规则自上而下渗透：学生的创见被导师据为己有，教师的成果被领导掠夺，甚至发展到毫无学术功底的中学负责人竟可令教师停课为其著书立说，公费出版垃圾读物，系统性地污染着一个民族的伟大创造和创新。</p>
+	<p class="justified-text">国际科学界无视共量子论的推论应用于著名数据分析的成功是假性的，中国主流科学界系统性压制、扼杀、造谣、诽谤和陷害共量子论的创立者是现实的。历史的潮流从来势不阻挡，共量子论终将暴发其巨大的科学能量。</p>
+            </div>
+        </section>
+
+<!-- 在第四部分之后添加 -->
+<section id="mission">
+    <div class="section-title">
+        <h2>东方科学的历史使命</h2>
+    </div>
+    
+    <div class="mission-temple">
+        <div class="mission-content">
+            <div class="mission-column">
+                <div class="mission-item">
+                    <i class="fas fa-crown"></i>
+                    <h3>承前启后的文明接力</h3>
+                    <p class="justified-text">欧洲开创了数学体系与自然科学经典范式，构成了现代文明的无可取代的系统性元规则。从欧几里得《几何原本》严密的公理体系，到牛顿《自然哲学的数学原理》构建的经典力学大厦；从莱布尼茨与牛顿独立创立微积分，开启数学分析的时代，到法拉第以直观实验揭示电磁感应定律，欧洲科学先贤以系统性的理论建构和实验探索，为人类文明奠定了坚实的理性根基与科学范式。尤其法拉第，这位出身寒微、几乎未受正规教育的装订工学徒，却以超凡的直觉和朴实的实验，洞察了自然界深藏的电磁奥秘，他的发现不仅直接引领了电气革命，更成为现代电力文明与技术应用的基石，其科学精神至今仍激励着无数探索者，彰显着理论与实践的不朽价值。</p>
+                </div>
+            </div>
+            
+            <div class="mission-column">
+                <div class="mission-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>多元互补的科学范式</h3>
+                    <p class="justified-text">美国在应用科学和技术创新领域的卓越成就，展现了科学实践与理论结合的巨大能量。从莱特兄弟的首次动力飞行到阿波罗计划的登月壮举，从贝尔实验室的晶体管发明到互联网的诞生，美国始终站在技术革命的前沿。硅谷的崛起不仅重塑了全球产业格局，更催生了以信息技术、人工智能和生物科技为代表的新一轮科技浪潮。NASA的深空探索、SpaceX的商业航天突破，以及众多科学家在物理、化学和医学领域的基础性贡献，共同构筑了美国科学与工程体系的辉煌图景。这些成就不仅源于其强大的研发投入和创新文化，更得益于一个植根于本土、鼓励学术自由与精英协作的开放型科研生态系统，为全球科技进步提供了持续的动力与范式借鉴。</p>
+                </div>
+            </div>
+            
+            <div class="mission-column">
+                <div class="mission-item">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>东方智慧的时代贡献</h3>
+                    <p class="justified-text">东方世界在现代科学体系的构建中起步相对较晚，数学与物理等基础科学目前仍以学习、消化和拓展西方已有理论体系为主流，主流学界对非自我原创性与突破性的新原理和新理论持系统性压制和破坏的立场。但在技术领域，近年来中国在航天、通信、新能源等多个应用技术领域实现显著突破，展现出强大的工程实现与集成创新能力。在此背景下，东方学帝科学思想致力于构建连接东西方科学认知的桥梁，归一原理、逻辑熵原理、角动定律、纠缠球谐函数等，以深刻的逻辑力量和数学美感，为理解复杂系统的统一性与信息演化提供了新范式，有望对数学、基础科学及未来社会科学的发展产生深远影响，推动一种更具包容性与对话性的科学文明进程。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mission-declaration">
+            <div class="declaration-text">
+                <h4>东方科学宣言</h4>
+	<p class="justified-text">东方科学，以归一原理、逻辑熵原理的提出，纠缠球谐函数的发现，及可验证的庞大理论系统——共量子论的建立为根本标志，实现科学范式的元突破，致力于解决现代基础科学中存在的根本性悖论与认知瓶颈，提供理解自然规律的新数学与物理基础，而非对既有理论的简单补充或修正。</p>
+	<p class="justified-text">科学作为人类共同的精神财富，不应被任何特定群体或意识形态所垄断。东方科学的使命正是打破科学领域的垄断局面，推动科学理论的多元化发展。真正的科学超越国界，真理的探索依赖于全球智慧的合作。因此，东方科学自觉承担起文明桥梁的使命，致力于融通不同知识体系，为促进全人类的科学进步与文明互鉴提供坚实的理性支撑与人文关怀。</p>
+	<p class="justified-text">科学事业的健康发展，必须倡导基于严格逻辑的科学方法论，反对任何形式的科学教条主义和权威主义。科学真理只能通过严谨的逻辑论证和实验验证来确立，而不能通过所谓的“科学共识”来强制推行。随着这些数理内涵深刻且预言能力强大的新理论日趋成熟，国际科学界终将回归依赖逻辑演绎和真实实验验证的正轨。</p>
+	<p class="justified-text">新的科学体制，致力于建立更加开放、包容的科学交流平台，鼓励不同背景、不同观点的科学家自由表达和创新思考。只有通过思想的碰撞和交流，科学才能实现真正的进步。未来，科学有望通过融合东方科学思想所提供的不可替代的新范式，实现文明层级的认知跃迁。</p>
+	<p class="justified-text">东方学帝科学思想将秉持这一历史使命，以严谨的逻辑体系、开放的学术胸怀和坚定的科学信念，为推动人类科学事业向着更成熟、更智慧、更可持续的文明新形态迈进而不懈奋斗。真理之路漫漫，吾辈将上下而求索；科学之光煌煌，必照亮人类前行的方向。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </div>
+
+
+
+    <footer>
+        <div class="container footer-content">
+            <p>数学与自然编委会 © 2021-2025</p>
+            <p>东方学帝科学思想官方网站</p>
+            <p>知识共享 | 开放科学 | 独立研究</p>
+        </div>
+    </footer>
+
+    <script>
+        // 添加滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. 滚动条定位到最新年份
+            const scrollContainers = document.querySelectorAll('.scroll-container');
+            scrollContainers.forEach(container => {
+                const lastYearItem = container.querySelector('.year-item:last-child');
+                if (lastYearItem) {
+                    container.scrollLeft = lastYearItem.offsetLeft - container.offsetLeft - 20;
+                }
+            });
+
+            // 2. 卡片动画效果（您原有的代码）
+            const animatedElements = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>
