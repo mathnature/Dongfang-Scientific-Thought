@@ -249,7 +249,7 @@ nav p {
 
 .cards-container {
     display: grid;
-    grid-template-columns: 28% 28% 43%; /* 原理框各28%，纲领框44% */
+    grid-template-columns: 28% 28% 43%; /* 原理框各28%，宪章框44% */
     gap: 25px;
     margin-bottom: 50px;
     justify-content: center;
@@ -339,7 +339,7 @@ nav p {
     border-radius: 8px;
     padding: 10px;
     margin: 20px -10px; /* 合并左右负margin */
-   /* border-left: 4px solid var(--success-color); */  /* 注销纲领左括号 */
+   /* border-left: 4px solid var(--success-color); */  /* 注销宪章左括号 */
     text-align: left;
     box-sizing: border-box;
     width: calc(100% + 20px); /* 合并宽度调整 */
@@ -559,6 +559,12 @@ nav p {
     }
 }
 
+/* 确保没有其他样式覆盖 */
+.justified-text, 
+.intro-text p, 
+.intro-text {
+    font-size: 16px !important; /* 临时使用 !important 测试 */
+}
     </style>
 
 </head>
@@ -572,7 +578,7 @@ nav p {
             <nav>
                 <ul>
                     <li><a href="#intro">简介</a></li>
-                    <li><a href="#principles">科学原理、科学纲领</a></li>
+                    <li><a href="#principles">科学原理、科学宪章</a></li>
                     <li><a href="#articles">科学著作</a></li>
                     <li><a href="#poetry">科普著作</a></li>
                     <li><a href="#course">历程</a></li>
@@ -599,7 +605,7 @@ nav p {
     <div class="container">
         <section id="principles">
             <div class="section-title">
-                <h2>科学原理和科学纲领</h2>
+                <h2>科学原理和科学宪章</h2>
             </div>
            
             <div class="cards-container">
@@ -634,7 +640,7 @@ nav p {
                 <div class="card animated">
 
                     <div class="card-header">
-                        <h3>东方学帝科学纲领</h3>
+                        <h3>东方学帝科学宪章</h3>
                     </div>
                     <div class="card-body">
 	         <div class="principle-box">
@@ -660,70 +666,70 @@ nav p {
                     <div class="year-item">
                         <h3 class="year-title">2021年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202101.html" target="_blank">论光速的相对性</a></li>
-                            <li><a href="https://mathnature.github.io//MN202102.html" target="_blank">量子数病态方程</a></li>
-                            <li><a href="https://mathnature.github.io//MN202103.html" target="_blank">LIGO信号波相对论方程失效</a></li>
-                            <li><a href="https://mathnature.github.io//MN202104.html" target="_blank">东方学帝分子动力学修正方程</a></li>
-                            <li><a href="https://mathnature.github.io//MN202105.html" target="_blank">东方学帝角动定律和算符演化方程</a></li>
-                            <li><a href="https://mathnature.github.io//MN202106.html" target="_blank">LIGO信号的东方学帝共量子论方程</a></li>
-                            <li><a href="https://mathnature.github.io//MN202107.html" target="_blank">LIGO螺旋双黑洞合并失败</a></li>
-                            <li><a href="https://mathnature.github.io//MN202108.html" target="_blank">电磁波的东方学帝修正方程</a></li>
-                            <li><a href="https://mathnature.github.io//MN202109.html" target="_blank">Yukawa势映射的核力常数</a></li>
-                            <li><a href="https://mathnature.github.io//MN202110.html" target="_blank">Yukawa介子理论的终结</a></li>
+                            <li><a href="https://mathnature.github.io/MN202101.html" target="_blank">论光速的相对性</a></li>
+                            <li><a href="https://mathnature.github.io/MN202102.html" target="_blank">量子数病态方程</a></li>
+                            <li><a href="https://mathnature.github.io/MN202103.html" target="_blank">LIGO信号波相对论方程失效</a></li>
+                            <li><a href="https://mathnature.github.io/MN202104.html" target="_blank">东方学帝分子动力学修正方程</a></li>
+                            <li><a href="https://mathnature.github.io/MN202105.html" target="_blank">东方学帝角动定律和算符演化方程</a></li>
+                            <li><a href="https://mathnature.github.io/MN202106.html" target="_blank">LIGO信号的东方学帝共量子论方程</a></li>
+                            <li><a href="https://mathnature.github.io/MN202107.html" target="_blank">LIGO螺旋双黑洞合并失败</a></li>
+                            <li><a href="https://mathnature.github.io/MN202108.html" target="_blank">电磁波的东方学帝修正方程</a></li>
+                            <li><a href="https://mathnature.github.io/MN202109.html" target="_blank">Yukawa势映射的核力常数</a></li>
+                            <li><a href="https://mathnature.github.io/MN202110.html" target="_blank">Yukawa介子理论的终结</a></li>
                        </ul>
                     </div>
                     
                     <div class="year-item">
                         <h3 class="year-title">2022年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202201.html" target="_blank">Klein-Gordon-Coulomb方程的终结</a></li>
-                            <li><a href="https://mathnature.github.io//MN202202.html" target="_blank">致畸简化Dirac氢方程的终结</a></li>
-                            <li><a href="https://mathnature.github.io//MN202203.html" target="_blank">诱导二阶Dirac方程的东方学帝解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">异构二阶狄拉克氢方程的终结</a></li>
-                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">真实二阶Dirac方程的终结</a></li>
-                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">Dirac氢方程的东方学帝挑战解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">东方学帝修正Dirac方程的中子态解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">东方学帝修正Dirac方程的基态解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202209.html" target="_blank">一维氢原子Dirac方程的终结</a></li>
-                            <li><a href="https://mathnature.github.io//MN202210.html" target="_blank">Dirac电子理论的多重病态数学</a></li>
+                            <li><a href="https://mathnature.github.io/MN202201.html" target="_blank">Klein-Gordon-Coulomb方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io/MN202202.html" target="_blank">致畸简化Dirac氢方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io/MN202203.html" target="_blank">诱导二阶Dirac方程的东方学帝解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202204.html" target="_blank">异构二阶狄拉克氢方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io/MN202205.html" target="_blank">真实二阶Dirac方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io/MN202206.html" target="_blank">Dirac氢方程的东方学帝挑战解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202207.html" target="_blank">东方学帝修正Dirac方程的中子态解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202208.html" target="_blank">东方学帝修正Dirac方程的基态解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202209.html" target="_blank">一维氢原子Dirac方程的终结</a></li>
+                            <li><a href="https://mathnature.github.io/MN202210.html" target="_blank">Dirac电子理论的多重病态数学</a></li>
                         </ul>
                     </div>
 
                     <div class="year-item">
                         <h3 class="year-title">2023年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202301.html" target="_blank">缔合勒让德方程的东方学帝广谱解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202302.html" target="_blank">东方学帝特殊纠缠球谐函数</a></li>
-                            <li><a href="https://mathnature.github.io//MN202303.html" target="_blank">薛定谔方程的东方学帝特殊纠缠解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202304.html" target="_blank">氢的东方学帝特殊纠缠波函数</a></li>
-                            <li><a href="https://mathnature.github.io//MN202305.html" target="_blank">拉普拉斯方程的东方学帝特殊纠缠球面解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202301.html" target="_blank">缔合勒让德方程的东方学帝广谱解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202302.html" target="_blank">东方学帝特殊纠缠球谐函数</a></li>
+                            <li><a href="https://mathnature.github.io/MN202303.html" target="_blank">薛定谔方程的东方学帝特殊纠缠解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202304.html" target="_blank">氢的东方学帝特殊纠缠波函数</a></li>
+                            <li><a href="https://mathnature.github.io/MN202305.html" target="_blank">拉普拉斯方程的东方学帝特殊纠缠球面解</a></li>
                         </ul>
                     </div>
   
                     <div class="year-item">
                         <h3 class="year-title">2024年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202401.html" target="_blank">东方学帝广义纠缠球谐函数</a></li>
-                            <li><a href="https://mathnature.github.io//MN202402.html" target="_blank">薛定谔方程的东方学帝广义纠缠解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202403.html" target="_blank">氢的东方学帝广义纠缠波函数</a></li>
-                            <li><a href="https://mathnature.github.io//MN202404.html" target="_blank">拉普拉斯方程的东方学帝广义纠缠解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202405.html" target="_blank">东方学帝实数波动方程的广义纠缠解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202401.html" target="_blank">东方学帝广义纠缠球谐函数</a></li>
+                            <li><a href="https://mathnature.github.io/MN202402.html" target="_blank">薛定谔方程的东方学帝广义纠缠解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202403.html" target="_blank">氢的东方学帝广义纠缠波函数</a></li>
+                            <li><a href="https://mathnature.github.io/MN202404.html" target="_blank">拉普拉斯方程的东方学帝广义纠缠解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202405.html" target="_blank">东方学帝实数波动方程的广义纠缠解</a></li>
                         </ul>
                     </div>
                   
                     <div class="year-item">
                         <h3 class="year-title">2025年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202501.html" target="_blank">同余方程组的东方学帝简约通解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202502.html" target="_blank">欧拉无穷递降的逻辑熵变</a></li>
-                            <li><a href="https://mathnature.github.io//MN202503.html" target="_blank">欧拉丢番图方程的东方学帝特殊共因子解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202504.html" target="_blank">欧拉丢番图方程的东方学帝特殊互质解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202505.html" target="_blank">欧拉丢番图方程的东方学帝广义共因子解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202506.html" target="_blank">欧拉丢番图方程的东方学帝广义互质解</a></li>
-                            <li><a href="https://mathnature.github.io//MN202507.html" target="_blank">立方费马大定理Euler证明的终结</a></li>
-                            <li><a href="https://mathnature.github.io//MN202508.html" target="_blank">立方费马大定理的东方学帝证明</a></li>
-                            <li><a href="https://mathnature.github.io//MN202509.html" target="_blank">四次方费马大定理的东方学帝证明</a></li>
-                            <li><a href="https://mathnature.github.io//MN202510.html" target="_blank">欧拉丢番图方程的东方学帝高阶解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202501.html" target="_blank">同余方程组的东方学帝简约通解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202502.html" target="_blank">欧拉无穷递降的逻辑熵变</a></li>
+                            <li><a href="https://mathnature.github.io/MN202503.html" target="_blank">欧拉丢番图方程的东方学帝特殊共因子解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202504.html" target="_blank">欧拉丢番图方程的东方学帝特殊互质解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202505.html" target="_blank">欧拉丢番图方程的东方学帝广义共因子解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202506.html" target="_blank">欧拉丢番图方程的东方学帝广义互质解</a></li>
+                            <li><a href="https://mathnature.github.io/MN202507.html" target="_blank">立方费马大定理Euler证明的终结</a></li>
+                            <li><a href="https://mathnature.github.io/MN202508.html" target="_blank">立方费马大定理的东方学帝证明</a></li>
+                            <li><a href="https://mathnature.github.io/MN202509.html" target="_blank">四次方费马大定理的东方学帝证明</a></li>
+                            <li><a href="https://mathnature.github.io/MN202510.html" target="_blank">欧拉丢番图方程的东方学帝高阶解</a></li>
                         </ul>
                     </div>
 
@@ -741,55 +747,55 @@ nav p {
                     <div class="year-item">
                         <h3 class="year-title">2021年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202101.html" target="_blank">科普散文：共量子论宣言</a></li>
-                            <li><a href="https://mathnature.github.io//MN202102.html" target="_blank">科普诗：中秋夜</a></li>
-                            <li><a href="https://mathnature.github.io//MN202103.html" target="_blank">科普诗：量子泪</a></li>
-                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">科普诗：黑洞的传说</a></li>
-                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">科普诗：梦幻引力波</a></li>
-                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">田园诗：雨润花</a></li>
-                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">抒情诗：花凋零</a></li>
-                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">科普诗：天道</a></li>
-                            <li><a href="https://mathnature.github.io//MN202209.html" target="_blank">抒情诗：青春</a></li>
+                            <li><a href="https://mathnature.github.io/SW202101.html" target="_blank">科普散文：共量子论宣言</a></li>
+                            <li><a href="https://mathnature.github.io/SW202102.html" target="_blank">科普诗：中秋夜</a></li>
+                            <li><a href="https://mathnature.github.io/SW202103.html" target="_blank">科普诗：量子泪</a></li>
+                            <li><a href="https://mathnature.github.io/SW202204.html" target="_blank">科普诗：黑洞的传说</a></li>
+                            <li><a href="https://mathnature.github.io/SW202205.html" target="_blank">科普诗：梦幻引力波</a></li>
+                            <li><a href="https://mathnature.github.io/SW202206.html" target="_blank">田园诗：雨润花</a></li>
+                            <li><a href="https://mathnature.github.io/SW202207.html" target="_blank">抒情诗：花凋零</a></li>
+                            <li><a href="https://mathnature.github.io/SW202208.html" target="_blank">科普诗：天道</a></li>
+                            <li><a href="https://mathnature.github.io/SW202209.html" target="_blank">抒情诗：青春</a></li>
                         </ul>
                     </div>
                     
                     <div class="year-item">
                         <h3 class="year-title">2022年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202201.html" target="_blank">科普诗：大别山少年</a></li>
-                            <li><a href="https://mathnature.github.io//MN202202.html" target="_blank">科普诗：混沌量子引力</a></li>
-                            <li><a href="https://mathnature.github.io//MN202203.html" target="_blank">科普诗：弯曲的心</a></li>
-                            <li><a href="https://mathnature.github.io//MN202204.html" target="_blank">科普诗：电子的控诉</a></li>
-                            <li><a href="https://mathnature.github.io//MN202205.html" target="_blank">抒情诗：今日学术咏叹</a></li>
-                            <li><a href="https://mathnature.github.io//MN202206.html" target="_blank">科普诗：孙子定理古与今</a></li>
-                            <li><a href="https://mathnature.github.io//MN202207.html" target="_blank">科普诗：忘掉物理的浮华</a></li>
-                            <li><a href="https://mathnature.github.io//MN202208.html" target="_blank">抒情诗：东方物理的悲怆</a></li>
-                            <li><a href="https://mathnature.github.io//MN202210.html" target="_blank">抒情诗：梧桐山的鹰</a></li>
+                            <li><a href="https://mathnature.github.io/SW202201.html" target="_blank">科普诗：大别山少年</a></li>
+                            <li><a href="https://mathnature.github.io/SW202202.html" target="_blank">科普诗：混沌量子引力</a></li>
+                            <li><a href="https://mathnature.github.io/SW202203.html" target="_blank">科普诗：弯曲的心</a></li>
+                            <li><a href="https://mathnature.github.io/SW202204.html" target="_blank">科普诗：电子的控诉</a></li>
+                            <li><a href="https://mathnature.github.io/SW202205.html" target="_blank">抒情诗：今日学术咏叹</a></li>
+                            <li><a href="https://mathnature.github.io/SW202206.html" target="_blank">科普诗：孙子定理古与今</a></li>
+                            <li><a href="https://mathnature.github.io/SW202207.html" target="_blank">科普诗：忘掉物理的浮华</a></li>
+                            <li><a href="https://mathnature.github.io/SW202208.html" target="_blank">抒情诗：东方物理的悲怆</a></li>
+                            <li><a href="https://mathnature.github.io/SW202210.html" target="_blank">抒情诗：梧桐山的鹰</a></li>
                         </ul>
                     </div>
 
                     <div class="year-item">
                         <h3 class="year-title">2023年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202301.html" target="_blank">短篇小说：晨安</a></li>
-                            <li><a href="https://mathnature.github.io//MN202302.html" target="_blank">短篇小说：秋韵</a></li>
-                            <li><a href="https://mathnature.github.io//MN202303.html" target="_blank">短篇小说：课堂</a></li>
+                            <li><a href="https://mathnature.github.io/SW202301.html" target="_blank">短篇小说：晨安</a></li>
+                            <li><a href="https://mathnature.github.io/SW202302.html" target="_blank">短篇小说：秋韵</a></li>
+                            <li><a href="https://mathnature.github.io/SW202303.html" target="_blank">短篇小说：课堂</a></li>
                         </ul>
                     </div>
   
                     <div class="year-item">
                         <h3 class="year-title">2024年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202401.html" target="_blank">散文诗：浮云幽灵</a></li>
-                            <li><a href="https://mathnature.github.io//MN202402.html" target="_blank">报告文学：共量子论的曲折历程</a></li>
-                            <li><a href="https://mathnature.github.io//MN202403.html" target="_blank">科学宣言：东方科学的历史使命</a></li>
+                            <li><a href="https://mathnature.github.io/SW202401.html" target="_blank">散文诗：浮云幽灵</a></li>
+                            <li><a href="https://mathnature.github.io/SW202402.html" target="_blank">报告文学：共量子论的曲折历程</a></li>
+                            <li><a href="https://mathnature.github.io/SW202403.html" target="_blank">科学宣言：东方科学的历史使命</a></li>
                         </ul>
                     </div>
                   
                     <div class="year-item">
                         <h3 class="year-title">2025年卷</h3>
                         <ul>
-                            <li><a href="https://mathnature.github.io//MN202501.html" target="_blank">叙事诗：楠竹宫殿第一章百灵和白鹭</a></li>
+                            <li><a href="https://mathnature.github.io/SW202501.html" target="_blank">叙事诗：楠竹宫殿第一章百灵和白鹭</a></li>
                         </ul>
                     </div>
 
@@ -810,10 +816,8 @@ nav p {
                 <p class="justified-text">历史的血痕未干，同样的背叛，却以科学的名义，在学术的殿堂里再次上演。多少披上科学外衣的鼠眼长期霸占重要位置却缺乏实质性科学贡献，构成一个值得系统性反思的问题。然而，身处学术要职，若不仅未有推动科学进步的建树，反而倾心倾力压制、扼杀、造谣、诽谤、污名化甚至企图谋害具有突破性的科学发现及其发现者，这种行为无疑是对科学精神与学术伦理的长期背离。</p>
                 <p class="justified-text">统一宏观与微观量子现象的共量子论诞生于中国，核心原理由东方学帝于1986年5月提出。描述不同宏观系统所需的精确方程存在差异，这项研究在完成重要数学推导后，因缺乏权威的宏观量子化实验数据支持而被长期搁置。直至2016年2月11日LIGO合作组发布GW150914引力波事件的详细观测数据，东方学帝基于不同共量子论模型开展系统模拟与比对，最终揭示了该引力波信号频率分布及动态变化的精确量子化规律。论文的量子化方程引起的国际学术界的广泛兴趣，但共量子论的核心原理处于未公开状态。在论文关于双星合并频率计算的原创方程被剽窃并且错误理解和运用发表在国际著名期刊后，arXiv才决定发表东方学帝的原始论文。多年之后，Nature Physics与《天体物理学报》等国际权威期刊曾向东方学帝邀稿，但东方学帝拒绝给予其预期的回应。</p>
                 <p class="justified-text">2016年，欧洲启动量子技术旗舰计划，但未能成功解析LIGO的GW150914信号波的量子化规律。2019年，谷歌宣布实现"量子霸权"，但未在揭示量子力学的数学本质方面取得应有的实质性突破。虽然只需要一年时间构建共量子论的完整数学框架，作为弱势群体研究者，东方学帝决定暂缓整理共量子论的主要成果，为主流科学界留出十年时间取得统一量子理论研究的优先权。考虑到arXiv.org曾经将原本属于东方学帝首次提交论文的编号转授于后续其他研究者，而中国预印服务系统或先邀稿然后关闭账号，或随意修改论文署名信息，东方学帝决定彻底放弃效率极低且动机不透明的传统学术期刊与预印本arXiv.org，开始利用独立期刊《Mathematics & Nature》高效率地发布数学和理论物理开创性系列研究成果。2019年，国内某研究人员联合意大利退休教授构陷，删除了东方学帝的ResearchGate学术账号连带共量子论奠基论文。2020年，东方学帝重新注册ResearchGate账号，相继发表了数十篇原创数学与物理论文，但因硬盘不可修复故障，共量子论奠基论文未能成功恢复。2021年，东方学帝公开声明将共量子论的系统性撰写与发表计划设定于2028年启动。2025年，欧洲再度推出量子战略，明确计划于2030年前将欧洲打造为"全球量子技术领导者"，东方学帝决定将共量子论的系统性研究启动时间由2030年进一步推迟至2038年，期待欧洲量子战略优先突破统一量子理论，为全球科学共同体提供更充分的发展空间。</p>
-                <p class="justified-text">科学史上任何原理性的伟大突破，其价值必奠基于逻辑的彻底自洽与超越时代的预言能力。一份真正蕴含真知的原创手稿，纵使暂被尘埃掩盖，如遇具备学术良知与洞察力的同行，理就基于纯粹的逻辑审阅而辨识其价值。可悲的是，此种卓越的判断力在当今中国数理主流学界竟然荡然无存，暴露了几乎所有庞大研究工程的真相。极具讽刺的对比在于：在数学与物理领域掌握传统话语权的欧美学术界，从未对“共量子论”作出“学术不端”或“伪科学”的指控。而最激烈、最失范的系统性污名化，却源自理论诞生的本土。字节跳动公司的人工智能“豆包”以东方学帝的大量研究成果未发表在欧美著名期刊为由，在底层逻辑吸纳了针对东方学帝的匿名谣言和污名化信息，随时随地对归一原理与共量子论进行背离基本学术规范的疯狂诽谤，暴露的正是对科学精神的公然敌视。
-
-这场围剿早已超越论争范畴，演变为有组织的迫害：2021至2022年间，知乎等平台发动持续网络暴力，从匿名诽谤升至公开的人身攻击；幕后势力更试图买通工作单位负责人，企图制造悲剧以从物理与精神层面彻底扼杀理论创立者。此阴谋流产後，2024年又有势力转战国际学术论坛，以匿名激将法设下险恶圈套，其真实动机已被彻底识破并暴露于阳光之下。这一切，深刻揭示了深植的学术权力核心信条：“权柄在握，无需创新；然汝若创新，必得归我，否则吾自有手段令汝湮灭于无形。” 这套潜规则自上而下渗透：学生的创见被导师据为己有，教师的成果被领导掠夺，甚至发展到毫无学术功底的中学负责人竟可令教师停课为其著书立说，公费出版垃圾读物，系统性地污染着一个民族的伟大创造和创新。</p>
-	<p class="justified-text">国际科学界无视共量子论的推论应用于著名数据分析的成功是假性的，中国主流科学界系统性压制、扼杀、造谣、诽谤和陷害共量子论的创立者是现实的。历史的潮流从来势不阻挡，共量子论终将暴发其巨大的科学能量。</p>
+                <p class="justified-text">科学史上任何原理性的伟大突破，其价值必奠基于逻辑的彻底自洽与超越时代的预言能力。一份真正蕴含真知的原创手稿，纵使暂被尘埃掩盖，如遇具备学术良知与洞察力的同行，理就基于纯粹的逻辑审阅而辨识其价值。可悲的是，此种卓越的判断力在当今中国数理主流学界竟然荡然无存，暴露了几乎所有庞大研究工程的真相。极具讽刺的对比在于：在数学与物理领域掌握传统话语权的欧美学术界，从未对共量子论及其创立者作出“伪科学与学术不端”的指控。而最激烈、最失范的系统性污名化，却源自理论诞生的本土。学界部分当权者及少数人工智能和搜索引擎，以欧美著名期刊未发表东方学帝的论文为由，对其大量开创性研究成果进行疯狂造谣与诽谤，并偷贴“虚假、有害、暴力、色情”等污名化标签以误导青少年读者，此举正是对科学精神的公然敌视。这场围剿早已超越学术论争范畴，演变为一场有组织的迫害：2021至2022年间，知乎等平台发动持续网络暴力，手段从匿名诽谤升级至公开的人身攻击；幕后势力更串通其工作单位无德负责人，企图制造悲剧，从物理与精神层面彻底扼杀理论创立者。此阴谋流产後，2024年又有势力转战国际学术论坛，匿名设置险恶圈套，诱骗参加国际学术会议，然其真实动机已被彻底识破，阴谋未能逞。这一切，深刻揭示了深植于学术权力核心的信条：“权柄在握，无需创新；然汝若创新，必得归我，否则吾自有手段令汝湮灭于无形。”此套潜规则自上而下渗透：学生的创见被导师据为己有，教师的成果被领导掠夺，更有甚者，毫无学术功底的中学负责人竟可强令教师停课为其著书立说，并以公费出版垃圾。这种行为系统性地污染着一个民族的伟大创造力与创新根基。</p>
+	<p class="justified-text">国际科学界无视共量子论的推论应用于著名数据分析的成功是假性的，本土主流科学界系统性压制、扼杀、造谣、诽谤和陷害共量子论的创立者是现实的。历史的潮流从来势不阻挡，共量子论终将暴发其巨大的科学能量。</p>
             </div>
         </section>
 
@@ -853,11 +857,12 @@ nav p {
         <div class="mission-declaration">
             <div class="declaration-text">
                 <h4>东方科学宣言</h4>
-	<p class="justified-text">东方科学，以归一原理、逻辑熵原理的提出，纠缠球谐函数的发现，及可验证的庞大理论系统——共量子论的建立为根本标志，实现科学范式的元突破，致力于解决现代基础科学中存在的根本性悖论与认知瓶颈，提供理解自然规律的新数学与物理基础，而非对既有理论的简单补充或修正。</p>
-	<p class="justified-text">科学作为人类共同的精神财富，不应被任何特定群体或意识形态所垄断。东方科学的使命正是打破科学领域的垄断局面，推动科学理论的多元化发展。真正的科学超越国界，真理的探索依赖于全球智慧的合作。因此，东方科学自觉承担起文明桥梁的使命，致力于融通不同知识体系，为促进全人类的科学进步与文明互鉴提供坚实的理性支撑与人文关怀。</p>
-	<p class="justified-text">科学事业的健康发展，必须倡导基于严格逻辑的科学方法论，反对任何形式的科学教条主义和权威主义。科学真理只能通过严谨的逻辑论证和实验验证来确立，而不能通过所谓的“科学共识”来强制推行。随着这些数理内涵深刻且预言能力强大的新理论日趋成熟，国际科学界终将回归依赖逻辑演绎和真实实验验证的正轨。</p>
-	<p class="justified-text">新的科学体制，致力于建立更加开放、包容的科学交流平台，鼓励不同背景、不同观点的科学家自由表达和创新思考。只有通过思想的碰撞和交流，科学才能实现真正的进步。未来，科学有望通过融合东方科学思想所提供的不可替代的新范式，实现文明层级的认知跃迁。</p>
-	<p class="justified-text">东方学帝科学思想将秉持这一历史使命，以严谨的逻辑体系、开放的学术胸怀和坚定的科学信念，为推动人类科学事业向着更成熟、更智慧、更可持续的文明新形态迈进而不懈奋斗。真理之路漫漫，吾辈将上下而求索；科学之光煌煌，必照亮人类前行的方向。</p>
+	<p class="justified-text">阴云寂然退去，幽灵折断了翅膀，齐然坠入黑谷，消失得无踪无影。东方的太阳静静升起，将灿烂的光芒洒向世界，照亮每一寸土地。</p>
+	<p class="justified-text">一个新的春天，一个地球的新春天，一个科学文明的新春天，正静悄悄地来临。一种思想，一种发源于东方沃土的思想，一种与西方科学文明交相辉映的思想，正越过千难万阻，昂首阔步，稳健走向世界，传递着深沉而坚韧的精神力量。</p>
+	<p class="justified-text">东方科学思想，融汇归一原理与逻辑熵原理之自然法典、革新科学认知的纠缠球谐函数、系统攻克丢番图方程与费马大定理的初等代数、统一宏观微观量子现象的共量子论，已然实现科学范式的元突破。其锋芒所向，复杂难题常常迎刃而解；其精神所至，无英杰愿见其湮灭，无正道能容其玷污，无桎梏可锁其光芒。东方科学思想致力于解决现代基础科学中存在的根本性悖论与认知瓶颈，提供理解自然规律的新数学与物理基础，远非对既有理论之零碎修补，而是科学认知体系之整体重构。科学作为人类共同的精神财富，不应被任何特定群体或意识形态所垄断，而必须回归自然本真，探索真实宇宙规律，促进地球高等文明永续发展。东方科学的使命，正在于打破无意形成的潜垄断、推动科学理论多元化演进。真正的科学超越国界，真理的探索仰赖于全球智慧的协作。东方科学自觉承担文明桥梁之责，为人类科学进步与文明对话，源源不断注入理性而开放的磅礴力量。</p>
+	<p class="justified-text">科学理论的建立、科学实验的开展、科学实践的推行，以及科学事业的整体发展，必须由基于严格逻辑的科学方法论所主导，并接受同一部理性法典的约束。我们礼赞历史上一切伟大的科学成就，同时坚定反对思想教条与学术权威主义，坚决抵制脱离逻辑基础的科学欺诈与资源滥用。东方学帝科学纲领所确立的科学新准则，标志着科学事业将从追逐名利的工程狂欢中觉醒，回归其服务人类文明进步的神圣使命，确保真实的自然规律指引科研方向，使科学在纯洁化的道路上，恒久成为推动地球高等文明健康发展的根本力量。秉持严谨的逻辑体系、开放的学术胸襟与正大信念，东方科学思想肩负这一历史使命，努力推动人类科学事业迈向更成熟、更智慧、更可持续的文明新形态。构建开放包容的科学交流生态，广纳不同背景研究者的突破性探索，正是这一使命的生动实践。未来，自然科学乃至社会科学，必将通过融汇东方科学思想所提供的不可替代之新范式，实现文明层级的认知跃迁。</p>
+	<p class="justified-text">真理之路漫漫，吾辈求索不息。以自然之法重塑科学之本，以开放之智开启文明新篇。伟大的科学发现，从不因发现者的身份背景而增损其光芒；真正的科学探索，绝非为攫取个人或团体的名利而启航。一切伟大的真理，终将如浩瀚星空，超越一切狭隘的私欲与压制，永恒熠熠生辉。</p>
+	<p class="justified-text">我们的共同梦想必须成真！我们的共同梦想定能成真！</p>
             </div>
         </div>
     </div>
@@ -865,11 +870,9 @@ nav p {
 
     </div>
 
-
-
     <footer>
         <div class="container footer-content">
-            <p>数学与自然编委会 © 2021-2025</p>
+            <p>数学与自然编委会 © Since 2021</p>
             <p>东方学帝科学思想官方网站</p>
             <p>知识共享 | 开放科学 | 独立研究</p>
         </div>
@@ -925,9 +928,6 @@ nav p {
             });
         });
     </script>
-
-</body>
-</html>
 
 </body>
 </html>
