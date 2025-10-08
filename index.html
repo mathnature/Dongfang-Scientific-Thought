@@ -364,6 +364,16 @@
             .chinese-main { font-size: 1.2rem; }
             .english-main { font-size: 1.2rem; }
         }
+
+@font-face {  
+font-family: 'EnhancedFangSong';  
+src: local('仿宋'),       
+local('FangSong');  
+font-weight: bold;  
+font-style: normal;  
+font-synthesis: weight; /* 允许浏览器合成粗体 */
+}
+
     </style>
 </head>
 <body>
@@ -377,25 +387,28 @@
             </div>
             
             <!-- 修改：使用左右容器布局的概述部分 -->
+<!-- 设置模板：<div class="overview-subtitle"><p style="line-height: 1.6;font-size: 1.0rem;font-weight: bold;font-family: '仿宋', FangSong, STFangsong, serif;text-align: justify;"> -->
+<!-- <div class="overview-subtitle">  <p style="line-height: 1.6;font-size: 1.0rem;font-weight: bold;font-family: '楷体', 'KaiTi', 'STKaiti', serif;text-align: justify;">-->
             <div class="overview-container">
                 <div class="overview-left">
                     <div class="overview-header">
                    <!--     <div class="overview-title">东方学帝科学思想</div> -->
-                        <div class="overview-subtitle">起源于当代数学和近代物理的逻辑检验以及实验工程正负价值分析！</div>
+                        <div class="overview-subtitle" style="margin-top: 1.25%;">  <p style="line-height: 1.6;font-size: 1.0rem;font-weight: bold;font-family: '楷体', 'KaiTi', 'STKaiti', serif;text-align: justify;">起源于当代数学和近代物理的逻辑检验以及实验工程正负价值分析，无关于易经、玄学、幻学、所谓东方科学的预掠夺空壳等投机理论！<p/></div>
                     </div>
                     <div class="overview-subtitle">
-                    <p style="line-height: 1.5;">东方学帝科学思想以东方学帝归一原理、东方学帝逻辑熵原理和科学宪章为基础构建完整的逻辑体系，推动理论和实验的系统性科学化，最终消灭利益集团对科学的非纯良控制。代表性成果有颠覆性修正分子动力学理论、颠覆性修正麦克斯韦电磁理论、颠覆性修正量子力学理论、系统性修正偏微分方程理论、有效推进恒熵数论、提出角动定律和创立统一宏观微观量子化描述的共量子论，包括揭露相对论和丢番图方程模性系统性逻辑错误等，无关于易经、玄学、幻学、所谓东方科学的预掠夺空壳等投机理论。</p>
+                  <!--  <p style="line-height: 1.6; <div class="overview-subtitle"><p style="line-height: 1.6;font-size: 1.0rem;font-weight: bold;font-family: '仿宋', FangSong, STFangsong, serif;text-align: justify;"> -->
+                    <p style="line-height: 1.6;font-size: 1.0rem;font-weight: bold;font-family: '楷体', 'KaiTi', 'STKaiti', serif;text-align: justify;">
+东方学帝科学思想以东方学帝归一原理、东方学帝逻辑熵原理和科学宪章为基础构建完整的逻辑体系，推动理论和实验的系统性科学化，最终消灭利益集团对科学的非纯良控制。代表性成果有颠覆性修正分子动力学理论、颠覆性修正麦克斯韦电磁理论、颠覆性修正量子力学理论、系统性修正偏微分方程理论、有效推进恒熵数论、发现全面改造科学理论图景的纠缠球谐函数、提出角动定律和创立统一宏观微观量子化描述的共量子论，包括揭露相对论和丢番图方程模性系统性逻辑错误等。</p>
                     </div>
                 </div>
                 
                 <div class="overview-right">
                     <div class="overview-header">
                    <!--     <div class="overview-title">Dongfang Scientific Thought</div> -->
-                        <div class="overview-subtitle; "><a style="font-size: 0.85rem;">Originating from logical testing of contemporary mathematics and modern physics as well as positive-negative value analysis of experimental engineering!</a></div>
+                        <div class="overview-subtitle; "><p style="line-height: 1.2; font-size: 0.80rem; text-align: justify;">Originating from logical testing of contemporary mathematics and modern physics as well as positive-negative value analysis of experimental engineering, being unrelated to speculation theories such as Book of Changes, metaphysics, illusory science, and the pre-predatory hollow shell of what is so-called Eastern (or Oriental) science!</p></div>
                     </div>
                     <div class="overview-content">
-                        <p></p>
-                        <p>Dongfang Scientific Thought constructs a complete logical system based on the Dongfang Unitary Principle, Dongfang Logical Entropy Principle, and Science Charter to promote the systematic scientification of both theory and experiment, and ultimately to eradicate the non-benign control of science by interest groups. The representative achievements comprise the subversive revision of molecular dynamics theory, the subversive revision of Maxwell's electromagnetic theory, the subversive revision of quantum mechanics theory, the systematic revision of partial differential equation theory, the effective advancement of equientropy number theory, the proposal of the angular motion law, and the establishment of the Com Quantum Theory for unifying macroscopic-microscopic description, including exposing systematic logical errors in relativity and Diophantine equation models, and being unrelated to speculation theories such as Book of Changes, metaphysics, illusory science, and the pre-predatory hollow shell of what is so-called Eastern (or Oriental) science.</p>
+                     <p style="line-height: 1.2; font-size: 0.80rem; text-align: justify;">Dongfang Scientific Thought constructs a complete logical system based on the Dongfang Unitary Principle, Dongfang Logical Entropy Principle, and Science Charter to promote the systematic scientification of both theory and experiment, and ultimately to eradicate the non-benign control of science by interest groups. The representative achievements comprise the subversive revision of molecular dynamics theory, the subversive revision of Maxwell's electromagnetic theory, the subversive revision of quantum mechanics theory, the systematic revision of partial differential equation theory, the discovery of the entangled spherical harmonic function that comprehensively transforms the scientific theoretical landscape, the effective advancement of equientropy number theory, the proposal of the angular motion law, and the establishment of the Com Quantum Theory for unifying macroscopic-microscopic description, including exposing systematic logical errors in relativity and Diophantine equation models. </p>
                     </div>
                 </div>
             </div>
