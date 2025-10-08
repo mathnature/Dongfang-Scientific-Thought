@@ -96,18 +96,105 @@
             }
         }
         
-        .subtitle {
-            font-size: 1.3rem;
-            background: linear-gradient(90deg, #FFD700, #FFA500, #FF8C00);
+        /* 修改：概述部分使用左右容器布局 */
+        .overview-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .overview-left, .overview-right {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+        
+        .overview-right {
+            border-left: 4px solid #C0C0C0;
+        }
+        
+        .overview-left::before, .overview-right::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .overview-right::before {
+            background: linear-gradient(90deg, transparent, rgba(192,192,192,0.1), transparent);
+        }
+        
+        .overview-left:hover::before, .overview-right:hover::before {
+            left: 100%;
+        }
+        
+        .overview-left:hover, .overview-right:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .overview-right:hover {
+            box-shadow: 0 10px 30px rgba(192, 192, 192, 0.2);
+        }
+        
+        .overview-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .overview-right .overview-header {
+            border-bottom: 1px solid rgba(192, 192, 192, 0.3);
+        }
+        
+        .overview-title {
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, #FFD700, #FF8C00);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 50px;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            line-height: 1.6;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         
-       
+        .overview-right .overview-title {
+            background: linear-gradient(90deg, #C0C0C0, #A9A9A9);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        .overview-subtitle {
+            font-size: 1rem;
+            background: linear-gradient(90deg, #FFA500, #FF6347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 12px;
+          <!--  font-style: italic; -->
+            letter-spacing: 0.6px;
+        }
+        
+        .overview-right .overview-subtitle {
+            background: linear-gradient(90deg, #D3D3D3, #808080);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        .overview-content {
+            color: #e0e0e0;
+            line-height: 1.2;
+            font-size: 0.75rem;
+        }
         
         .language-buttons {
             display: grid;
@@ -211,7 +298,6 @@
             box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
         }
         
-        /* 修改重点：分层式标题样式 */
         .principle h3 {
             display: flex;
             flex-direction: column;
@@ -231,16 +317,16 @@
         }
         
         .english-main {
-    font-size: 1rem;
-    background: linear-gradient(90deg, #FFA500, #FF6347);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: bold;  /* 改为bold */
-    font-style: italic;
-    letter-spacing: 0.5px;
-    text-align: center;
-}
+            font-size: 1rem;
+            background: linear-gradient(90deg, #FFA500, #FF6347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
         
         .bilingual-principle {
             display: flex;
@@ -273,45 +359,11 @@
         @media (max-width: 768px) {
             .chinese-title { font-size: 2.5rem; }
             .english-title { font-size: 2.5rem; }
+            .overview-container { grid-template-columns: 1fr; }
             .btn { padding: 25px 20px; }
-            .bilingual-mission { grid-template-columns: 1fr; }
-            .mission-column.english { 
-                border-left: none; 
-                border-top: 2px solid rgba(255, 215, 0, 0.3);
-                padding-left: 0;
-                padding-top: 20px;
-            }
             .chinese-main { font-size: 1.2rem; }
             .english-main { font-size: 1.2rem; }
         }
-
-/* 金银双色对称方案 */
-.chinese-section {
-    border-left: 4px solid #FFD700;
-    padding-left: 15px;
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.chinese-section::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, #FFD700, transparent);
-}
-
-.english-section {
-    border-left: 4px solid #C0C0C0;
-    padding-left: 15px;
-    padding-top: 25px;
-}
-
-.principle h3 {
-    margin-bottom: 12px;
-}
     </style>
 </head>
 <body>
@@ -320,15 +372,33 @@
     <div class="container">
         <div class="logo">
             <div class="bilingual-title">
-                <div class="chinese-title">☀️东方学帝科学思想</div>
-                <div class="english-title">Dongfang Scientific Thought</div>
+                <div class="chinese-title">☀️Dongfang Scientific Thought</div>
+                <div class="english-title">东方学帝科学思想</div>
             </div>
-<div class="subtitle">
-    <div class="bilingual-subtitle">
-        <div class="subtitle-cn">起源于当代数学和近代物理的逻辑检验以及实验工程正负价值分析，无关于易经、玄学、幻学等投机理论。</div>
-        <div class="subtitle-en">Originating from logical testing of contemporary mathematics and modern physics as well as positive-negative value analysis of experimental engineering, being unrelated to I Ching, mysticism, or other speculative theories.</div>
-    </div>
-</div>
+            
+            <!-- 修改：使用左右容器布局的概述部分 -->
+            <div class="overview-container">
+                <div class="overview-left">
+                    <div class="overview-header">
+                   <!--     <div class="overview-title">东方学帝科学思想</div> -->
+                        <div class="overview-subtitle">起源于当代数学和近代物理的逻辑检验以及实验工程正负价值分析！</div>
+                    </div>
+                    <div class="overview-subtitle">
+                    <p style="line-height: 1.5;">东方学帝科学思想以东方学帝归一原理、东方学帝逻辑熵原理和科学宪章为基础构建完整的逻辑体系，推动理论和实验的系统性科学化，最终消灭利益集团对科学的非纯良控制。代表性成果有颠覆性修正分子动力学理论、颠覆性修正麦克斯韦电磁理论、颠覆性修正量子力学理论、系统性修正偏微分方程理论、有效推进恒熵数论、提出角动定律和创立统一宏观微观量子化描述的共量子论，包括揭露相对论和丢番图方程模性系统性逻辑错误等，无关于易经、玄学、幻学、所谓东方科学的预掠夺空壳等投机理论。</p>
+                    </div>
+                </div>
+                
+                <div class="overview-right">
+                    <div class="overview-header">
+                   <!--     <div class="overview-title">Dongfang Scientific Thought</div> -->
+                        <div class="overview-subtitle; "><a style="font-size: 0.85rem;">Originating from logical testing of contemporary mathematics and modern physics as well as positive-negative value analysis of experimental engineering!</a></div>
+                    </div>
+                    <div class="overview-content">
+                        <p></p>
+                        <p>Dongfang Scientific Thought constructs a complete logical system based on the Dongfang Unitary Principle, Dongfang Logical Entropy Principle, and Science Charter to promote the systematic scientification of both theory and experiment, and ultimately to eradicate the non-benign control of science by interest groups. The representative achievements comprise the subversive revision of molecular dynamics theory, the subversive revision of Maxwell's electromagnetic theory, the subversive revision of quantum mechanics theory, the systematic revision of partial differential equation theory, the effective advancement of equientropy number theory, the proposal of the angular motion law, and the establishment of the Com Quantum Theory for unifying macroscopic-microscopic description, including exposing systematic logical errors in relativity and Diophantine equation models, and being unrelated to speculation theories such as Book of Changes, metaphysics, illusory science, and the pre-predatory hollow shell of what is so-called Eastern (or Oriental) science.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="language-buttons">
@@ -344,12 +414,12 @@
             </a>
         </div>
 
-            <!-- 新增的主站入口按钮 -->
-		<a href="https://mathnature.github.io/" class="btn">
-    <div class="btn-icon">🌅</div>
-    <div class="btn-title">数学与自然💡Mathematics & Nature </div>
-    <div class="btn-desc">完整论文库 | 理论体系🔥Complete Paper Library | Theoretical System </div>
-		</a>
+        <!-- 新增的主站入口按钮 -->
+        <a href="https://mathnature.github.io/" class="btn">
+            <div class="btn-icon">🌅</div>
+            <div class="btn-title">数学与自然💡Mathematics & Nature</div>
+            <div class="btn-desc">完整论文库 | 理论体系🔥Complete Paper Library | Theoretical System</div>
+        </a>
         
         <div class="scientific-principles">
             <div class="principle">
@@ -393,7 +463,7 @@
                     <span class="english-main">🔗 Entangled Spherical Harmonic Function</span>
                 </h3>
                 <div class="bilingual-principle">
-                    <p class="english-desc"> The systematic discovery that subverts the landscape of all differential equations in natural science theories. </p>
+                    <p class="english-desc">The systematic discovery that subverts the landscape of all differential equations in natural science theories.</p>
                 </div>
             </div>
  
@@ -405,7 +475,7 @@
                     <p>300年来神秘隐藏在书边的费马大定理的巧妙证明将现身在逻辑熵原理的光辉之中？</p>
                 </div>
                 <h3>
-                    <span class="english-main">🎯Equientropy number theory</span>
+                    <span class="english-main">🎯 Equientropy Number Theory</span>
                 </h3>
                 <div class="bilingual-principle">
                     <p class="english-desc">Shall the elegant proof of Fermat Last Theorem, mysteriously concealed in the margins for three centuries, be revealed in the illuminating light of the Principle of Logical Entropy?</p>
@@ -427,7 +497,6 @@
                 </div>
            </div>
 
-
             <div class="principle">
                 <h3>
                     <span class="chinese-main">⚖️ 科学宪章</span>
@@ -436,7 +505,7 @@
                     <p>倡导理论体系和实验工程逻辑自洽自律的更高效推动科学发展的根本大法。</p>
                 </div>
                 <h3>
-                    <span class="english-main">⚖️ Science Charter </span>
+                    <span class="english-main">⚖️ Science Charter</span>
                 </h3>
                 <div class="bilingual-principle">
                     <p class="english-desc">Advocating the fundamental law of logical self-consistency and self-discipline for theoretical systems and experimental engineering to promote scientific development more efficiently.</p>
