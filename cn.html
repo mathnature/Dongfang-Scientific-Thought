@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>东方学帝科学思想 - 数学与自然编委会</title>
     <meta name="description" content="东方学帝科学思想：涵盖归一原理、逻辑熵原理、科学宪章、相对光速、分子动理论修正方程、角动定律、纠缠球谐函数、实数波动方程、共量子论及费马大定理的证明。">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -114,7 +115,9 @@
         .hero {
             padding: 80px 0;
             text-align: center;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a2e"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23244b75" stroke-width="1"/></svg>');
+            background: 
+    linear-gradient(135deg, var(--dark-color) 0%, #16213e 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(36, 75, 117, 0.1) 10px, rgba(36, 75, 117, 0.1) 20px);
             position: relative;
         }
         
@@ -234,20 +237,6 @@ nav p {
             z-index: 0;
         }
         
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-        
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
-}
-
 .cards-container {
     display: grid;
     grid-template-columns: 28% 28% 43%; /* 原理框各28%，宪章框44% */
@@ -560,12 +549,58 @@ nav p {
     }
 }
 
-/* 确保没有其他样式覆盖 */
+
+<!-- 在head中添加 -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs">
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+
+<style>
+/* 替换英雄区域的SVG背景 */
+.hero {
+    background: 
+        linear-gradient(135deg, var(--dark-color) 0%, #16213e 100%),
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(36, 75, 117, 0.1) 10px, rgba(36, 75, 117, 0.1) 20px);
+    /* 移除原来的SVG url */
+}
+
+/* 合并重复的cards-container定义 */
+.cards-container {
+    display: grid;
+    grid-template-columns: 28% 28% 43%;
+    gap: 25px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 合并文本样式 */
 .justified-text, 
 .intro-text p, 
-.intro-text {
-    font-size: 16px !important; /* 临时使用 !important 测试 */
+.container > p,
+.mission-declaration p {
+    text-align: justify;
+    text-indent: 2em;
+    margin-bottom: 1em;
+    line-height: 1.8;
 }
+
+/* 排除不需要缩进的元素 */
+.principle-box p,
+.mission-item p,
+.card-header p, 
+.year-title p,
+.section-title p,
+footer p,
+nav p {
+    text-indent: 0 !important;
+}
+</style>
     </style>
 
 </head>
@@ -882,7 +917,7 @@ nav p {
     <script>
         // 添加滚动动画效果
         document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.card');
+        <--    const animatedElements = document.querySelectorAll('.card'); -->
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
